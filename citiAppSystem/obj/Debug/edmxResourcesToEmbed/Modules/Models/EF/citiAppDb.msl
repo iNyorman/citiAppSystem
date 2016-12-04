@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="citiAppDatabaseModelStoreContainer" CdmEntityContainer="citiAppDatabaseEntities">
+    <EntitySetMapping Name="AccDelTables">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.AccDelTable">
+        <MappingFragment StoreEntitySet="AccDelTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DelDateTime" ColumnName="DelDateTime" />
+          <ScalarProperty Name="DelBy" ColumnName="DelBy" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="arrivalTables">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.arrivalTable">
+        <MappingFragment StoreEntitySet="arrivalTable">
+          <ScalarProperty Name="deliveryNo" ColumnName="deliveryNo" />
+          <ScalarProperty Name="VIA" ColumnName="VIA" />
+          <ScalarProperty Name="WAYBILL" ColumnName="WAYBILL" />
+          <ScalarProperty Name="dateReceived" ColumnName="dateReceived" />
+          <ScalarProperty Name="datePrinted" ColumnName="datePrinted" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+          <ScalarProperty Name="sName" ColumnName="sName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="branches">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.branch">
+        <MappingFragment StoreEntitySet="branch">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+          <ScalarProperty Name="branchName" ColumnName="branchName" />
+          <ScalarProperty Name="branchCode" ColumnName="branchCode" />
+          <ScalarProperty Name="bAddress" ColumnName="bAddress" />
+          <ScalarProperty Name="bContactNo" ColumnName="bContactNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="brands">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.brand">
+        <MappingFragment StoreEntitySet="brand">
+          <ScalarProperty Name="brandID" ColumnName="brandID" />
+          <ScalarProperty Name="brandName" ColumnName="brandName" />
+          <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_TransTable">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.c_TransTable">
+        <MappingFragment StoreEntitySet="c_TransTable">
+          <ScalarProperty Name="trans_Id" ColumnName="trans_Id" />
+          <ScalarProperty Name="trans_Type" ColumnName="trans_Type" />
+          <ScalarProperty Name="OR_NUM" ColumnName="OR_NUM" />
+          <ScalarProperty Name="trans_Date" ColumnName="trans_Date" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="GRS_AMT" ColumnName="GRS_AMT" />
+          <ScalarProperty Name="REBATE" ColumnName="REBATE" />
+          <ScalarProperty Name="INT" ColumnName="INT" />
+          <ScalarProperty Name="DISC" ColumnName="DISC" />
+          <ScalarProperty Name="NET_AMT" ColumnName="NET_AMT" />
+          <ScalarProperty Name="pay_Type" ColumnName="pay_Type" />
+          <ScalarProperty Name="PAYMENT" ColumnName="PAYMENT" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="chequeNo" ColumnName="chequeNo" />
+          <ScalarProperty Name="cTransStatus" ColumnName="cTransStatus" />
+          <ScalarProperty Name="change" ColumnName="change" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+          <ScalarProperty Name="cash_AMT" ColumnName="cash_AMT" />
+          <ScalarProperty Name="cheque_AMT" ColumnName="cheque_AMT" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="system_Date" ColumnName="system_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChangesLogs">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.ChangesLog">
+        <MappingFragment StoreEntitySet="ChangesLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="changeType" ColumnName="changeType" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="dateChange" ColumnName="dateChange" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="collections">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.collection">
+        <MappingFragment StoreEntitySet="collection">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UDI" ColumnName="UDI" />
+          <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+          <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+          <ScalarProperty Name="Notarial_Fee" ColumnName="Notarial_Fee" />
+          <ScalarProperty Name="Delivery_Fee" ColumnName="Delivery_Fee" />
+          <ScalarProperty Name="Other_Pay" ColumnName="Other_Pay" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="monthlyRebate" ColumnName="monthlyRebate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="collection_details">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.collection_details">
+        <MappingFragment StoreEntitySet="collection_details">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Collection_Details_ID" ColumnName="Collection_Details_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="OR_Number" ColumnName="OR_Number" />
+          <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+          <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+          <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="coll_cash_amt" ColumnName="coll_cash_amt" />
+          <ScalarProperty Name="col_cheque_amt" ColumnName="col_cheque_amt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companyProfiles">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.companyProfile">
+        <MappingFragment StoreEntitySet="companyProfile">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="citiProfileNo" ColumnName="citiProfileNo" />
+          <ScalarProperty Name="cedula_name" ColumnName="cedula_name" />
+          <ScalarProperty Name="cedula_no" ColumnName="cedula_no" />
+          <ScalarProperty Name="cedula_dateissued" ColumnName="cedula_dateissued" />
+          <ScalarProperty Name="place_issued" ColumnName="place_issued" />
+          <ScalarProperty Name="branchID" ColumnName="branchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customerTables">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.customerTable">
+        <MappingFragment StoreEntitySet="customerTable">
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="civil_status" ColumnName="civil_status" />
+          <ScalarProperty Name="employerAddress" ColumnName="employerAddress" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deliveryReceipts">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.deliveryReceipt">
+        <MappingFragment StoreEntitySet="deliveryReceipt">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+          <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+          <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+          <ScalarProperty Name="DR_no" ColumnName="DR_no" />
+          <ScalarProperty Name="DRtype" ColumnName="DRtype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DR_details">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.DR_details">
+        <MappingFragment StoreEntitySet="DR_details">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DR_Details_ID" ColumnName="DR_Details_ID" />
+          <ScalarProperty Name="LCP" ColumnName="LCP" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="qnty" ColumnName="qnty" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="pStatus" ColumnName="pStatus" />
+          <ScalarProperty Name="cash" ColumnName="cash" />
+          <ScalarProperty Name="orAmt" ColumnName="orAmt" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="BalanceAF" ColumnName="BalanceAF" />
+          <ScalarProperty Name="termsDR" ColumnName="termsDR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="freeProducts">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.freeProduct">
+        <MappingFragment StoreEntitySet="freeProduct">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="FstockNo" ColumnName="FstockNo" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="attachedStockNo" ColumnName="attachedStockNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="models">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.model">
+        <MappingFragment StoreEntitySet="model">
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="modelName" ColumnName="modelName" />
+          <ScalarProperty Name="brandID" ColumnName="brandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OF_Table">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.OF_Table">
+        <MappingFragment StoreEntitySet="OF_Table">
+          <ScalarProperty Name="OFID" ColumnName="OFID" />
+          <ScalarProperty Name="FeeType" ColumnName="FeeType" />
+          <ScalarProperty Name="ORNumber" ColumnName="ORNumber" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="trans_Id" ColumnName="trans_Id" />
+          <ScalarProperty Name="payments" ColumnName="payments" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="cash_amt" ColumnName="cash_amt" />
+          <ScalarProperty Name="cheque_amt" ColumnName="cheque_amt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="poDetails">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.poDetail">
+        <MappingFragment StoreEntitySet="poDetails">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="poDetails_ID" ColumnName="poDetails_ID" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="orderedQTY" ColumnName="orderedQTY" />
+          <ScalarProperty Name="freeQTY" ColumnName="freeQTY" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="totalCost" ColumnName="totalCost" />
+          <ScalarProperty Name="poID" ColumnName="poID" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="totalQty" ColumnName="totalQty" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="remainingQTY" ColumnName="remainingQTY" />
+          <ScalarProperty Name="holderQTY" ColumnName="holderQTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productLists">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.productList">
+        <MappingFragment StoreEntitySet="productList">
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="brandID" ColumnName="brandID" />
+          <ScalarProperty Name="modelID" ColumnName="modelID" />
+          <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.product">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="poDetails_ID" ColumnName="poDetails_ID" />
+          <ScalarProperty Name="prodStatus" ColumnName="prodStatus" />
+          <ScalarProperty Name="deliveryNo" ColumnName="deliveryNo" />
+          <ScalarProperty Name="loc_From" ColumnName="loc_From" />
+          <ScalarProperty Name="loc_To" ColumnName="loc_To" />
+          <ScalarProperty Name="date_Received" ColumnName="date_Received" />
+          <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchaseOrders">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.purchaseOrder">
+        <MappingFragment StoreEntitySet="purchaseOrder">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="poID" ColumnName="poID" />
+          <ScalarProperty Name="poDate" ColumnName="poDate" />
+          <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+          <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+          <ScalarProperty Name="approvedBy" ColumnName="approvedBy" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="st_requisitionTable">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.st_requisitionTable">
+        <MappingFragment StoreEntitySet="st_requisitionTable">
+          <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+          <ScalarProperty Name="date_Transaction" ColumnName="date_Transaction" />
+          <ScalarProperty Name="transfer_location" ColumnName="transfer_location" />
+          <ScalarProperty Name="gatePassNo" ColumnName="gatePassNo" />
+          <ScalarProperty Name="receivedBy" ColumnName="receivedBy" />
+          <ScalarProperty Name="releasedBy" ColumnName="releasedBy" />
+          <ScalarProperty Name="from_location" ColumnName="from_location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.supplier">
+        <MappingFragment StoreEntitySet="supplier">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+          <ScalarProperty Name="sName" ColumnName="sName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transferTables">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.transferTable">
+        <MappingFragment StoreEntitySet="transferTable">
+          <ScalarProperty Name="transfer_ID" ColumnName="transfer_ID" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="trans_Date" ColumnName="trans_Date" />
+          <ScalarProperty Name="transferLocation" ColumnName="transferLocation" />
+          <ScalarProperty Name="qnty" ColumnName="qnty" />
+          <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="citiAppDatabaseModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="F_name" ColumnName="F_name" />
+          <ScalarProperty Name="L_name" ColumnName="L_name" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Collection_REPORTS" FunctionName="citiAppDatabaseModel.Store.Collection_REPORTS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.Collection_REPORTS_Result">
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UDI" ColumnName="UDI" />
+          <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+          <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+          <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+          <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+          <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="transDate" ColumnName="transDate" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="orNo" ColumnName="orNo" />
+          <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+          <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+          <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CollectionReportByAccountNo" FunctionName="citiAppDatabaseModel.Store.CollectionReportByAccountNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.CollectionReportByAccountNo_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+          <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+          <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+          <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UDI" ColumnName="UDI" />
+          <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+          <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+          <ScalarProperty Name="Notarial_Fee" ColumnName="Notarial_Fee" />
+          <ScalarProperty Name="Delivery_Fee" ColumnName="Delivery_Fee" />
+          <ScalarProperty Name="Other_Pay" ColumnName="Other_Pay" />
+          <ScalarProperty Name="Expr4" ColumnName="Expr4" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="monthlyRebate" ColumnName="monthlyRebate" />
+          <ScalarProperty Name="Expr5" ColumnName="Expr5" />
+          <ScalarProperty Name="Collection_Details_ID" ColumnName="Collection_Details_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="OR_Number" ColumnName="OR_Number" />
+          <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+          <ScalarProperty Name="Expr6" ColumnName="Expr6" />
+          <ScalarProperty Name="Expr7" ColumnName="Expr7" />
+          <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+          <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+          <ScalarProperty Name="Expr8" ColumnName="Expr8" />
+          <ScalarProperty Name="Expr9" ColumnName="Expr9" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="Expr10" ColumnName="Expr10" />
+          <ScalarProperty Name="DR_Details_ID" ColumnName="DR_Details_ID" />
+          <ScalarProperty Name="LCP" ColumnName="LCP" />
+          <ScalarProperty Name="Expr11" ColumnName="Expr11" />
+          <ScalarProperty Name="Expr12" ColumnName="Expr12" />
+          <ScalarProperty Name="qnty" ColumnName="qnty" />
+          <ScalarProperty Name="Expr13" ColumnName="Expr13" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="Expr14" ColumnName="Expr14" />
+          <ScalarProperty Name="Expr15" ColumnName="Expr15" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="pStatus" ColumnName="pStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="customerByEmployer" FunctionName="citiAppDatabaseModel.Store.customerByEmployer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.customerByEmployer_Result">
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="customerById" FunctionName="citiAppDatabaseModel.Store.customerById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.customerById_Result">
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CustomerList" FunctionName="citiAppDatabaseModel.Store.CustomerList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.CustomerList_Result">
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="NewSelectCommandDR_REPORTBYACCOUNT" FunctionName="citiAppDatabaseModel.Store.NewSelectCommandDR_REPORTBYACCOUNT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.NewSelectCommandDR_REPORTBYACCOUNT_Result">
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="orAmt" ColumnName="orAmt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="POViewByPONumber" FunctionName="citiAppDatabaseModel.Store.POViewByPONumber">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.POViewByPONumber_Result">
+          <ScalarProperty Name="poDate" ColumnName="poDate" />
+          <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+          <ScalarProperty Name="approvedBy" ColumnName="approvedBy" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="orderedQTY" ColumnName="orderedQTY" />
+          <ScalarProperty Name="freeQTY" ColumnName="freeQTY" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="totalCost" ColumnName="totalCost" />
+          <ScalarProperty Name="sName" ColumnName="sName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+          <ScalarProperty Name="poID" ColumnName="poID" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="brandName" ColumnName="brandName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ReceiptQuery" FunctionName="citiAppDatabaseModel.Store.ReceiptQuery">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.ReceiptQuery_Result">
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="qnty" ColumnName="qnty" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="LCP" ColumnName="LCP" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SELECTCOLLECTIONS" FunctionName="citiAppDatabaseModel.Store.SELECTCOLLECTIONS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.SELECTCOLLECTIONS_Result">
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UDI" ColumnName="UDI" />
+          <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+          <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+          <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+          <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+          <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="transDate" ColumnName="transDate" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="orNo" ColumnName="orNo" />
+          <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+          <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+          <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductByBrand" FunctionName="citiAppDatabaseModel.Store.SelectProductByBrand">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectProductByBrand_Result">
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProducts" FunctionName="citiAppDatabaseModel.Store.SelectProducts">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectProducts_Result">
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectQueryByEmployer" FunctionName="citiAppDatabaseModel.Store.SelectQueryByEmployer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectQueryByEmployer_Result">
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectQueryLedgerReportByAccount" FunctionName="citiAppDatabaseModel.Store.SelectQueryLedgerReportByAccount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectQueryLedgerReportByAccount_Result">
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UDI" ColumnName="UDI" />
+          <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+          <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+          <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+          <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+          <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="transDate" ColumnName="transDate" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="orNo" ColumnName="orNo" />
+          <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+          <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+          <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectQueryLedgerReportsAccountNo" FunctionName="citiAppDatabaseModel.Store.SelectQueryLedgerReportsAccountNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectQueryLedgerReportsAccountNo_Result">
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+          <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+          <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UDI" ColumnName="UDI" />
+          <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+          <ScalarProperty Name="PN" ColumnName="PN" />
+          <ScalarProperty Name="terms" ColumnName="terms" />
+          <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+          <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+          <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+          <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+          <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+          <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+          <ScalarProperty Name="transDate" ColumnName="transDate" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="orNo" ColumnName="orNo" />
+          <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+          <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+          <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="selectQueryReceiptByOR" FunctionName="citiAppDatabaseModel.Store.selectQueryReceiptByOR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="citiAppDatabaseModel.selectQueryReceiptByOR_Result">
+          <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+          <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+          <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+          <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="qnty" ColumnName="qnty" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="LCP" ColumnName="LCP" />
+          <ScalarProperty Name="or_number" ColumnName="or_number" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateDescriptionByStockNo" FunctionName="citiAppDatabaseModel.Store.UpdateDescriptionByStockNo" />
+  </EntityContainerMapping>
+</Mapping>

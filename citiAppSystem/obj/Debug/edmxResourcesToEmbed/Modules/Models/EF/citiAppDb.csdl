@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="citiAppDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AccDelTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DelDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DelBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="arrivalTable">
+    <Key>
+      <PropertyRef Name="deliveryNo" />
+    </Key>
+    <Property Name="deliveryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WAYBILL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="dateReceived" Type="DateTime" Precision="0" />
+    <Property Name="datePrinted" Type="DateTime" Precision="0" />
+    <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="branchNo" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="branchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="brand">
+    <Key>
+      <PropertyRef Name="brandID" />
+    </Key>
+    <Property Name="brandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="c_TransTable">
+    <Key>
+      <PropertyRef Name="trans_Id" />
+    </Key>
+    <Property Name="trans_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trans_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OR_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trans_Date" Type="DateTime" Precision="0" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GRS_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REBATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="INT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DISC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NET_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pay_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PAYMENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cTransStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="change" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cash_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cheque_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="system_Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="ChangesLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="changeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateChange" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="collection">
+    <Key>
+      <PropertyRef Name="Collection_ID" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Collection_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Total_LCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UDI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Rebate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GRS_Monthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Net_monthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Transaction_Date" Type="DateTime" Precision="0" />
+    <Property Name="Notarial_Fee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Delivery_Fee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Other_Pay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="terms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="monthlyRebate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="collection_details">
+    <Key>
+      <PropertyRef Name="Collection_Details_ID" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Collection_Details_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OR_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRIN_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Total_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Penalty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rebate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Acct_Balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="transaction_date" Type="DateTime" Precision="0" />
+    <Property Name="Collection_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="expected_date" Type="DateTime" Precision="0" />
+    <Property Name="expected_balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="coll_cash_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="col_cheque_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="companyProfile">
+    <Key>
+      <PropertyRef Name="citiProfileNo" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="citiProfileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cedula_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cedula_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cedula_dateissued" Type="DateTime" Precision="0" />
+    <Property Name="place_issued" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="customerTable">
+    <Key>
+      <PropertyRef Name="ID_Number" />
+    </Key>
+    <Property Name="ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mid_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="f_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="employer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="co_Maker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="co_MakerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="civil_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="employerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="deliveryReceipt">
+    <Key>
+      <PropertyRef Name="AccountNo" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Account_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Delivery_Date" Type="DateTime" Precision="0" />
+    <Property Name="SI_DR_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Salesman" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CI_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Collection_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DR_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DRtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DR_details">
+    <Key>
+      <PropertyRef Name="DR_Details_ID" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DR_Details_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qnty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="down_payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="or_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orAmt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="serialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BalanceAF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="termsDR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="freeProduct">
+    <Key>
+      <PropertyRef Name="FstockNo" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FstockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="attachedStockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="model">
+    <Key>
+      <PropertyRef Name="modelID" />
+    </Key>
+    <Property Name="modelID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="brandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OF_Table">
+    <Key>
+      <PropertyRef Name="OFID" />
+    </Key>
+    <Property Name="OFID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FeeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ORNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trans_Id" Type="Int32" />
+    <Property Name="payments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cash_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cheque_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="poDetail">
+    <Key>
+      <PropertyRef Name="poDetails_ID" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="poDetails_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orderedQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="freeQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="discount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="totalCost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="poID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="totalQty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remainingQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="holderQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="productList">
+    <Key>
+      <PropertyRef Name="product_ID" />
+    </Key>
+    <Property Name="product_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="brandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="modelID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="stockNo" />
+    </Key>
+    <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="serialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="poDetails_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prodStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="deliveryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="loc_From" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="loc_To" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="date_Received" Type="DateTime" Precision="0" />
+    <Property Name="st_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="purchaseOrder">
+    <Key>
+      <PropertyRef Name="poID" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="poID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="poDate" Type="DateTime" Precision="0" />
+    <Property Name="deliveryDate" Type="DateTime" Precision="0" />
+    <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="approvedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="totalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="st_requisitionTable">
+    <Key>
+      <PropertyRef Name="st_ID" />
+    </Key>
+    <Property Name="st_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_Transaction" Type="DateTime" Precision="3" />
+    <Property Name="transfer_location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gatePassNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receivedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="releasedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="from_location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="sup_IDno" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="transferTable">
+    <Key>
+      <PropertyRef Name="transfer_ID" />
+    </Key>
+    <Property Name="transfer_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="trans_Date" Type="DateTime" Precision="0" />
+    <Property Name="transferLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qnty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="st_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="F_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="L_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="citiAppDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccDelTables" EntityType="Self.AccDelTable" />
+    <EntitySet Name="arrivalTables" EntityType="Self.arrivalTable" />
+    <EntitySet Name="branches" EntityType="Self.branch" />
+    <EntitySet Name="brands" EntityType="Self.brand" />
+    <EntitySet Name="c_TransTable" EntityType="Self.c_TransTable" />
+    <EntitySet Name="ChangesLogs" EntityType="Self.ChangesLog" />
+    <EntitySet Name="collections" EntityType="Self.collection" />
+    <EntitySet Name="collection_details" EntityType="Self.collection_details" />
+    <EntitySet Name="companyProfiles" EntityType="Self.companyProfile" />
+    <EntitySet Name="customerTables" EntityType="Self.customerTable" />
+    <EntitySet Name="deliveryReceipts" EntityType="Self.deliveryReceipt" />
+    <EntitySet Name="DR_details" EntityType="Self.DR_details" />
+    <EntitySet Name="freeProducts" EntityType="Self.freeProduct" />
+    <EntitySet Name="models" EntityType="Self.model" />
+    <EntitySet Name="OF_Table" EntityType="Self.OF_Table" />
+    <EntitySet Name="poDetails" EntityType="Self.poDetail" />
+    <EntitySet Name="productLists" EntityType="Self.productList" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="purchaseOrders" EntityType="Self.purchaseOrder" />
+    <EntitySet Name="st_requisitionTable" EntityType="Self.st_requisitionTable" />
+    <EntitySet Name="suppliers" EntityType="Self.supplier" />
+    <EntitySet Name="transferTables" EntityType="Self.transferTable" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <FunctionImport Name="Collection_REPORTS" ReturnType="Collection(citiAppDatabaseModel.Collection_REPORTS_Result)">
+      <Parameter Name="drAcountNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CollectionReportByAccountNo" ReturnType="Collection(citiAppDatabaseModel.CollectionReportByAccountNo_Result)">
+      <Parameter Name="accountNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="customerByEmployer" ReturnType="Collection(citiAppDatabaseModel.customerByEmployer_Result)">
+      <Parameter Name="employer" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="customerById" ReturnType="Collection(citiAppDatabaseModel.customerById_Result)">
+      <Parameter Name="idNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerList" ReturnType="Collection(citiAppDatabaseModel.CustomerList_Result)" />
+    <FunctionImport Name="NewSelectCommandDR_REPORTBYACCOUNT" ReturnType="Collection(citiAppDatabaseModel.NewSelectCommandDR_REPORTBYACCOUNT_Result)">
+      <Parameter Name="accountNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="POViewByPONumber" ReturnType="Collection(citiAppDatabaseModel.POViewByPONumber_Result)">
+      <Parameter Name="poNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ReceiptQuery" ReturnType="Collection(citiAppDatabaseModel.ReceiptQuery_Result)">
+      <Parameter Name="oRNO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SELECTCOLLECTIONS" ReturnType="Collection(citiAppDatabaseModel.SELECTCOLLECTIONS_Result)" />
+    <FunctionImport Name="SelectProductByBrand" ReturnType="Collection(citiAppDatabaseModel.SelectProductByBrand_Result)">
+      <Parameter Name="brand" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SelectProducts" ReturnType="Collection(citiAppDatabaseModel.SelectProducts_Result)">
+      <Parameter Name="brand" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SelectQueryByEmployer" ReturnType="Collection(citiAppDatabaseModel.SelectQueryByEmployer_Result)">
+      <Parameter Name="employer" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SelectQueryLedgerReportByAccount" ReturnType="Collection(citiAppDatabaseModel.SelectQueryLedgerReportByAccount_Result)">
+      <Parameter Name="drAcountNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SelectQueryLedgerReportsAccountNo" ReturnType="Collection(citiAppDatabaseModel.SelectQueryLedgerReportsAccountNo_Result)">
+      <Parameter Name="drAcountNo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="selectQueryReceiptByOR" ReturnType="Collection(citiAppDatabaseModel.selectQueryReceiptByOR_Result)">
+      <Parameter Name="oRNO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateDescriptionByStockNo">
+      <Parameter Name="description" Mode="In" Type="String" />
+      <Parameter Name="stockNo" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Collection_REPORTS_Result">
+    <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+    <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="transDate" Nullable="true" />
+    <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="expected_date" Nullable="true" />
+    <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CollectionReportByAccountNo_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Delivery_Date" Nullable="true" />
+    <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ID_Number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Collection_ID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Expr2" Nullable="false" />
+    <Property Type="String" Name="Expr3" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+    <Property Type="String" Name="Notarial_Fee" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Delivery_Fee" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Other_Pay" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr4" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="paymentType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="monthlyRebate" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Expr5" Nullable="false" />
+    <Property Type="String" Name="Collection_Details_ID" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OR_Number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Expr6" Nullable="true" />
+    <Property Type="String" Name="Expr7" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="expected_date" Nullable="true" />
+    <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr8" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr9" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Expr10" Nullable="false" />
+    <Property Type="String" Name="DR_Details_ID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr11" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr12" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="qnty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr13" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr14" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Expr15" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pStatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="customerByEmployer_Result">
+    <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="customerById_Result">
+    <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="CustomerList_Result">
+    <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="NewSelectCommandDR_REPORTBYACCOUNT_Result">
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="orAmt" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="POViewByPONumber_Result">
+    <Property Type="DateTime" Name="poDate" Nullable="true" />
+    <Property Type="DateTime" Name="deliveryDate" Nullable="true" />
+    <Property Type="String" Name="approvedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="orderedQTY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="freeQTY" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cost" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="discount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="totalCost" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="branchNo" Nullable="true" />
+    <Property Type="String" Name="poID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="totalAmount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="brandName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ReceiptQuery_Result">
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Delivery_Date" Nullable="true" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="qnty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SELECTCOLLECTIONS_Result">
+    <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+    <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="transDate" Nullable="true" />
+    <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="expected_date" Nullable="true" />
+    <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SelectProductByBrand_Result">
+    <Property Type="String" Name="stockNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SelectProducts_Result">
+    <Property Type="String" Name="stockNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SelectQueryByEmployer_Result">
+    <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SelectQueryLedgerReportByAccount_Result">
+    <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+    <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="transDate" Nullable="true" />
+    <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="expected_date" Nullable="true" />
+    <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SelectQueryLedgerReportsAccountNo_Result">
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+    <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="transDate" Nullable="true" />
+    <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="expected_date" Nullable="true" />
+    <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="selectQueryReceiptByOR_Result">
+    <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Delivery_Date" Nullable="true" />
+    <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="qnty" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LCP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

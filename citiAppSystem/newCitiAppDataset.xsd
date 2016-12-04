@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="newCitiAppDataset" targetNamespace="http://tempuri.org/newCitiAppDataset.xsd" xmlns:mstns="http://tempuri.org/newCitiAppDataset.xsd" xmlns="http://tempuri.org/newCitiAppDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="citiAppDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="citiAppDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.citiAppSystem.Properties.Settings.GlobalReference.Default.citiAppDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="productDetailsViewTableAdapter" GeneratorDataComponentClassName="productDetailsViewTableAdapter" Name="productDetailsView" UserDataComponentName="productDetailsViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT deliveryReceipt.AccountNo, deliveryReceipt.Account_Type, deliveryReceipt.Delivery_Date, deliveryReceipt.SI_DR_no, deliveryReceipt.Salesman, deliveryReceipt.CI_By, deliveryReceipt.ID_Number, 
+                  deliveryReceipt.branchNo, branch.branchName, branch.bAddress, customerTable.fullName, customerTable.employer, customerTable.contact, customerTable.co_Maker, customerTable.address, 
+                  customerTable.co_MakerAddress, customerTable.employerAddress
+FROM     deliveryReceipt INNER JOIN
+                  customerTable ON deliveryReceipt.ID_Number = customerTable.ID_Number INNER JOIN
+                  branch ON deliveryReceipt.branchNo = branch.branchNo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="Account_Type" DataSetColumn="Account_Type" />
+              <Mapping SourceColumn="Delivery_Date" DataSetColumn="Delivery_Date" />
+              <Mapping SourceColumn="SI_DR_no" DataSetColumn="SI_DR_no" />
+              <Mapping SourceColumn="Salesman" DataSetColumn="Salesman" />
+              <Mapping SourceColumn="CI_By" DataSetColumn="CI_By" />
+              <Mapping SourceColumn="ID_Number" DataSetColumn="ID_Number" />
+              <Mapping SourceColumn="branchNo" DataSetColumn="branchNo" />
+              <Mapping SourceColumn="branchName" DataSetColumn="branchName" />
+              <Mapping SourceColumn="bAddress" DataSetColumn="bAddress" />
+              <Mapping SourceColumn="fullName" DataSetColumn="fullName" />
+              <Mapping SourceColumn="employer" DataSetColumn="employer" />
+              <Mapping SourceColumn="contact" DataSetColumn="contact" />
+              <Mapping SourceColumn="co_Maker" DataSetColumn="co_Maker" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="co_MakerAddress" DataSetColumn="co_MakerAddress" />
+              <Mapping SourceColumn="employerAddress" DataSetColumn="employerAddress" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAccountNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAccountNo" GeneratorSourceName="FillByAccountNo" GetMethodModifier="Public" GetMethodName="GetDataByAccountNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAccountNo" UserSourceName="FillByAccountNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT deliveryReceipt.AccountNo, deliveryReceipt.Account_Type, deliveryReceipt.Delivery_Date, deliveryReceipt.SI_DR_no, deliveryReceipt.Salesman, deliveryReceipt.CI_By, deliveryReceipt.ID_Number, 
+                  deliveryReceipt.branchNo, branch.branchName, branch.bAddress, customerTable.fullName, customerTable.employer, customerTable.contact, customerTable.co_Maker, customerTable.address, 
+                  customerTable.co_MakerAddress, customerTable.employerAddress
+FROM     deliveryReceipt INNER JOIN
+                  customerTable ON deliveryReceipt.ID_Number = customerTable.ID_Number INNER JOIN
+                  branch ON deliveryReceipt.branchNo = branch.branchNo
+WHERE  (deliveryReceipt.AccountNo = @accountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="accountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@accountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="newCitiAppDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="newCitiAppDataset" msprop:Generator_UserDSName="newCitiAppDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="productDetailsView" msprop:Generator_TableClassName="productDetailsViewDataTable" msprop:Generator_TableVarName="tableproductDetailsView" msprop:Generator_RowChangedName="productDetailsViewRowChanged" msprop:Generator_TablePropName="productDetailsView" msprop:Generator_RowDeletingName="productDetailsViewRowDeleting" msprop:Generator_RowChangingName="productDetailsViewRowChanging" msprop:Generator_RowEvHandlerName="productDetailsViewRowChangeEventHandler" msprop:Generator_RowDeletedName="productDetailsViewRowDeleted" msprop:Generator_RowClassName="productDetailsViewRow" msprop:Generator_UserTableName="productDetailsView" msprop:Generator_RowEvArgName="productDetailsViewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Account_Type" msprop:Generator_ColumnVarNameInTable="columnAccount_Type" msprop:Generator_ColumnPropNameInRow="Account_Type" msprop:Generator_ColumnPropNameInTable="Account_TypeColumn" msprop:Generator_UserColumnName="Account_Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Delivery_Date" msprop:Generator_ColumnVarNameInTable="columnDelivery_Date" msprop:Generator_ColumnPropNameInRow="Delivery_Date" msprop:Generator_ColumnPropNameInTable="Delivery_DateColumn" msprop:Generator_UserColumnName="Delivery_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SI_DR_no" msprop:Generator_ColumnVarNameInTable="columnSI_DR_no" msprop:Generator_ColumnPropNameInRow="SI_DR_no" msprop:Generator_ColumnPropNameInTable="SI_DR_noColumn" msprop:Generator_UserColumnName="SI_DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Salesman" msprop:Generator_ColumnVarNameInTable="columnSalesman" msprop:Generator_ColumnPropNameInRow="Salesman" msprop:Generator_ColumnPropNameInTable="SalesmanColumn" msprop:Generator_UserColumnName="Salesman" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CI_By" msprop:Generator_ColumnVarNameInTable="columnCI_By" msprop:Generator_ColumnPropNameInRow="CI_By" msprop:Generator_ColumnPropNameInTable="CI_ByColumn" msprop:Generator_UserColumnName="CI_By" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_Number" msprop:Generator_ColumnVarNameInTable="columnID_Number" msprop:Generator_ColumnPropNameInRow="ID_Number" msprop:Generator_ColumnPropNameInTable="ID_NumberColumn" msprop:Generator_UserColumnName="ID_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branchNo" msprop:Generator_ColumnVarNameInTable="columnbranchNo" msprop:Generator_ColumnPropNameInRow="branchNo" msprop:Generator_ColumnPropNameInTable="branchNoColumn" msprop:Generator_UserColumnName="branchNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branchName" msprop:Generator_ColumnVarNameInTable="columnbranchName" msprop:Generator_ColumnPropNameInRow="branchName" msprop:Generator_ColumnPropNameInTable="branchNameColumn" msprop:Generator_UserColumnName="branchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bAddress" msprop:Generator_ColumnVarNameInTable="columnbAddress" msprop:Generator_ColumnPropNameInRow="bAddress" msprop:Generator_ColumnPropNameInTable="bAddressColumn" msprop:Generator_UserColumnName="bAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fullName" msprop:Generator_ColumnVarNameInTable="columnfullName" msprop:Generator_ColumnPropNameInRow="fullName" msprop:Generator_ColumnPropNameInTable="fullNameColumn" msprop:Generator_UserColumnName="fullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="employer" msprop:Generator_ColumnVarNameInTable="columnemployer" msprop:Generator_ColumnPropNameInRow="employer" msprop:Generator_ColumnPropNameInTable="employerColumn" msprop:Generator_UserColumnName="employer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contact" msprop:Generator_ColumnVarNameInTable="columncontact" msprop:Generator_ColumnPropNameInRow="contact" msprop:Generator_ColumnPropNameInTable="contactColumn" msprop:Generator_UserColumnName="contact" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="co_Maker" msprop:Generator_ColumnVarNameInTable="columnco_Maker" msprop:Generator_ColumnPropNameInRow="co_Maker" msprop:Generator_ColumnPropNameInTable="co_MakerColumn" msprop:Generator_UserColumnName="co_Maker" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="co_MakerAddress" msprop:Generator_ColumnVarNameInTable="columnco_MakerAddress" msprop:Generator_ColumnPropNameInRow="co_MakerAddress" msprop:Generator_ColumnPropNameInTable="co_MakerAddressColumn" msprop:Generator_UserColumnName="co_MakerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="employerAddress" msprop:Generator_ColumnVarNameInTable="columnemployerAddress" msprop:Generator_ColumnPropNameInRow="employerAddress" msprop:Generator_ColumnPropNameInTable="employerAddressColumn" msprop:Generator_UserColumnName="employerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:productDetailsView" />
+      <xs:field xpath="mstns:AccountNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

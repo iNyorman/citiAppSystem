@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="citiAppDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccDelTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelDateTime" Type="datetime" />
+    <Property Name="DelBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="arrivalTable">
+    <Key>
+      <PropertyRef Name="deliveryNo" />
+    </Key>
+    <Property Name="deliveryNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VIA" Type="nvarchar(max)" />
+    <Property Name="WAYBILL" Type="nvarchar(max)" />
+    <Property Name="dateReceived" Type="date" />
+    <Property Name="datePrinted" Type="date" />
+    <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="sName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="branchNo" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="branchNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="branchName" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="bAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="bContactNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="brand">
+    <Key>
+      <PropertyRef Name="brandID" />
+    </Key>
+    <Property Name="brandID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="brandName" Type="nvarchar" MaxLength="50" />
+    <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="c_TransTable">
+    <Key>
+      <PropertyRef Name="trans_Id" />
+    </Key>
+    <Property Name="trans_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trans_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="OR_NUM" Type="nvarchar" MaxLength="50" />
+    <Property Name="trans_Date" Type="date" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GRS_AMT" Type="nvarchar" MaxLength="50" />
+    <Property Name="REBATE" Type="nvarchar" MaxLength="50" />
+    <Property Name="INT" Type="nvarchar" MaxLength="50" />
+    <Property Name="DISC" Type="nvarchar" MaxLength="50" />
+    <Property Name="NET_AMT" Type="nvarchar" MaxLength="50" />
+    <Property Name="pay_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="PAYMENT" Type="nvarchar" MaxLength="50" />
+    <Property Name="bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="chequeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="cTransStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="change" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="cash_AMT" Type="nvarchar" MaxLength="50" />
+    <Property Name="cheque_AMT" Type="nvarchar" MaxLength="50" />
+    <Property Name="remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="system_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="ChangesLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="changeType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Details" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateChange" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="collection">
+    <Key>
+      <PropertyRef Name="Collection_ID" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Collection_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Total_LCP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+    <Property Name="Balance" Type="nvarchar" MaxLength="50" />
+    <Property Name="UDI" Type="nvarchar" MaxLength="50" />
+    <Property Name="Total_Rebate" Type="nvarchar" MaxLength="50" />
+    <Property Name="PN" Type="nvarchar" MaxLength="50" />
+    <Property Name="GRS_Monthly" Type="nvarchar" MaxLength="50" />
+    <Property Name="Net_monthly" Type="nvarchar" MaxLength="50" />
+    <Property Name="Transaction_Date" Type="date" />
+    <Property Name="Notarial_Fee" Type="nvarchar" MaxLength="50" />
+    <Property Name="Delivery_Fee" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Pay" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="terms" Type="nvarchar" MaxLength="50" />
+    <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="monthlyRebate" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="collection_details">
+    <Key>
+      <PropertyRef Name="Collection_Details_ID" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Collection_Details_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="OR_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRIN_Amount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Total_Amount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Penalty" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rebate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Discount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Acct_Balance" Type="nvarchar" MaxLength="50" />
+    <Property Name="transaction_date" Type="date" />
+    <Property Name="Collection_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="expected_date" Type="date" />
+    <Property Name="expected_balance" Type="nvarchar" MaxLength="50" />
+    <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="coll_cash_amt" Type="nvarchar" MaxLength="50" />
+    <Property Name="col_cheque_amt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="companyProfile">
+    <Key>
+      <PropertyRef Name="citiProfileNo" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="citiProfileNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cedula_name" Type="nvarchar(max)" />
+    <Property Name="cedula_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="cedula_dateissued" Type="date" />
+    <Property Name="place_issued" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customerTable">
+    <Key>
+      <PropertyRef Name="ID_Number" />
+    </Key>
+    <Property Name="ID_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="last_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="mid_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="f_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="employer" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="co_Maker" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="co_MakerAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="civil_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="employerAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="fullName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="deliveryReceipt">
+    <Key>
+      <PropertyRef Name="AccountNo" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Account_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Delivery_Date" Type="date" />
+    <Property Name="SI_DR_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="Salesman" Type="nvarchar" MaxLength="50" />
+    <Property Name="CI_By" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Collection_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DR_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="DRtype" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DR_details">
+    <Key>
+      <PropertyRef Name="DR_Details_ID" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DR_Details_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LCP" Type="nvarchar" MaxLength="50" />
+    <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="qnty" Type="nvarchar" MaxLength="50" />
+    <Property Name="remarks" Type="nvarchar" MaxLength="100" />
+    <Property Name="down_payment" Type="nvarchar" MaxLength="50" />
+    <Property Name="or_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" />
+    <Property Name="pStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="cash" Type="nvarchar" MaxLength="50" />
+    <Property Name="orAmt" Type="nvarchar" MaxLength="50" />
+    <Property Name="model" Type="nvarchar" MaxLength="50" />
+    <Property Name="serialNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="PN" Type="nvarchar" MaxLength="50" />
+    <Property Name="BalanceAF" Type="nvarchar" MaxLength="50" />
+    <Property Name="termsDR" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="freeProduct">
+    <Key>
+      <PropertyRef Name="FstockNo" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FstockNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="attachedStockNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="model">
+    <Key>
+      <PropertyRef Name="modelID" />
+    </Key>
+    <Property Name="modelID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="modelName" Type="nvarchar" MaxLength="50" />
+    <Property Name="brandID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OF_Table">
+    <Key>
+      <PropertyRef Name="OFID" />
+    </Key>
+    <Property Name="OFID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FeeType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ORNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="trans_Id" Type="int" />
+    <Property Name="payments" Type="nvarchar" MaxLength="50" />
+    <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="cash_amt" Type="nvarchar" MaxLength="50" />
+    <Property Name="cheque_amt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="poDetails">
+    <Key>
+      <PropertyRef Name="poDetails_ID" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="poDetails_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="model" Type="nvarchar" MaxLength="50" />
+    <Property Name="orderedQTY" Type="nvarchar" MaxLength="50" />
+    <Property Name="freeQTY" Type="nvarchar" MaxLength="50" />
+    <Property Name="cost" Type="nvarchar" MaxLength="50" />
+    <Property Name="discount" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalCost" Type="nvarchar" MaxLength="50" />
+    <Property Name="poID" Type="nvarchar" MaxLength="50" />
+    <Property Name="brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalQty" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="remainingQTY" Type="nvarchar" MaxLength="50" />
+    <Property Name="holderQTY" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="productList">
+    <Key>
+      <PropertyRef Name="product_ID" />
+    </Key>
+    <Property Name="product_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="brandID" Type="nvarchar" MaxLength="50" />
+    <Property Name="modelID" Type="nvarchar" MaxLength="50" />
+    <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" />
+    <Property Name="price" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="stockNo" />
+    </Key>
+    <Property Name="stockNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="model" Type="nvarchar" MaxLength="50" />
+    <Property Name="serialNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="poDetails_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="prodStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="deliveryNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="loc_From" Type="nvarchar" MaxLength="50" />
+    <Property Name="loc_To" Type="nvarchar" MaxLength="50" />
+    <Property Name="date_Received" Type="date" />
+    <Property Name="st_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="price" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="purchaseOrder">
+    <Key>
+      <PropertyRef Name="poID" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="poID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="poDate" Type="date" />
+    <Property Name="deliveryDate" Type="date" />
+    <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchNo" Type="nvarchar(max)" />
+    <Property Name="approvedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalAmount" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="st_requisitionTable">
+    <Key>
+      <PropertyRef Name="st_ID" />
+    </Key>
+    <Property Name="st_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_Transaction" Type="datetime" />
+    <Property Name="transfer_location" Type="nvarchar" MaxLength="50" />
+    <Property Name="gatePassNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="receivedBy" Type="nvarchar(max)" />
+    <Property Name="releasedBy" Type="nvarchar(max)" />
+    <Property Name="from_location" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="sup_IDno" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="transferTable">
+    <Key>
+      <PropertyRef Name="transfer_ID" />
+    </Key>
+    <Property Name="transfer_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="trans_Date" Type="date" />
+    <Property Name="transferLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="qnty" Type="nvarchar" MaxLength="50" />
+    <Property Name="st_ID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="F_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="L_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="Collection_REPORTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="drAcountNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CollectionReportByAccountNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="customerByEmployer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="employer" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="customerById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CustomerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="NewSelectCommandDR_REPORTBYACCOUNT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="POViewByPONumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="poNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ReceiptQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="oRNO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SELECTCOLLECTIONS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductByBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brand" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="brand" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectQueryByEmployer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="employer" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectQueryLedgerReportByAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="drAcountNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectQueryLedgerReportsAccountNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="drAcountNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="selectQueryReceiptByOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="oRNO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateDescriptionByStockNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="description" Type="nvarchar" Mode="In" />
+    <Parameter Name="stockNo" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="citiAppDatabaseModelStoreContainer">
+    <EntitySet Name="AccDelTable" EntityType="Self.AccDelTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="arrivalTable" EntityType="Self.arrivalTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="branch" EntityType="Self.branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="brand" EntityType="Self.brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="c_TransTable" EntityType="Self.c_TransTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChangesLog" EntityType="Self.ChangesLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="collection" EntityType="Self.collection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="collection_details" EntityType="Self.collection_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="companyProfile" EntityType="Self.companyProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customerTable" EntityType="Self.customerTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="deliveryReceipt" EntityType="Self.deliveryReceipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DR_details" EntityType="Self.DR_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="freeProduct" EntityType="Self.freeProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="model" EntityType="Self.model" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OF_Table" EntityType="Self.OF_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="poDetails" EntityType="Self.poDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productList" EntityType="Self.productList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="purchaseOrder" EntityType="Self.purchaseOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="st_requisitionTable" EntityType="Self.st_requisitionTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transferTable" EntityType="Self.transferTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

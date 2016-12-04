@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ledgerDatasets" targetNamespace="http://tempuri.org/ledgerDatasets.xsd" xmlns:mstns="http://tempuri.org/ledgerDatasets.xsd" xmlns="http://tempuri.org/ledgerDatasets.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="citiAppDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="citiAppDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.citiAppSystem.Properties.Settings.GlobalReference.Default.citiAppDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ledgerTableTableAdapter" GeneratorDataComponentClassName="ledgerTableTableAdapter" Name="ledgerTable" UserDataComponentName="ledgerTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT customerTable.last_Name, customerTable.mid_Name, customerTable.f_Name, customerTable.address, customerTable.employer, customerTable.co_Maker, customerTable.co_MakerAddress, collection.Total_LCP, 
+                  collection.Payment, collection.Balance, collection.UDI, collection.Total_Rebate, collection.PN, collection.terms, collection.GRS_Monthly, collection.Net_monthly, collection.Transaction_Date, deliveryReceipt.SI_DR_no, 
+                  deliveryReceipt.Salesman, deliveryReceipt.CI_By, collection_details.transaction_date AS transDate, collection_details.NO, collection_details.OR_Number AS orNo, collection_details.PRIN_Amount, 
+                  collection_details.Total_Amount, collection_details.Penalty, collection_details.Discount, collection_details.Acct_Balance, collection_details.expected_date, collection_details.expected_balance, collection_details.Date, 
+                  deliveryReceipt.Delivery_Date, collection.monthlyRebate, deliveryReceipt.Collection_ID, deliveryReceipt.DR_no, deliveryReceipt.DRtype, collection_details.Rebate, customerTable.employerAddress, 
+                  customerTable.fullName
+FROM     customerTable INNER JOIN
+                  deliveryReceipt ON customerTable.ID_Number = deliveryReceipt.ID_Number INNER JOIN
+                  collection ON deliveryReceipt.Collection_ID = collection.Collection_ID INNER JOIN
+                  collection_details ON collection.Collection_ID = collection_details.Collection_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="last_Name" DataSetColumn="last_Name" />
+              <Mapping SourceColumn="mid_Name" DataSetColumn="mid_Name" />
+              <Mapping SourceColumn="f_Name" DataSetColumn="f_Name" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="employer" DataSetColumn="employer" />
+              <Mapping SourceColumn="co_Maker" DataSetColumn="co_Maker" />
+              <Mapping SourceColumn="co_MakerAddress" DataSetColumn="co_MakerAddress" />
+              <Mapping SourceColumn="Total_LCP" DataSetColumn="Total_LCP" />
+              <Mapping SourceColumn="Payment" DataSetColumn="Payment" />
+              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
+              <Mapping SourceColumn="UDI" DataSetColumn="UDI" />
+              <Mapping SourceColumn="Total_Rebate" DataSetColumn="Total_Rebate" />
+              <Mapping SourceColumn="PN" DataSetColumn="PN" />
+              <Mapping SourceColumn="terms" DataSetColumn="terms" />
+              <Mapping SourceColumn="GRS_Monthly" DataSetColumn="GRS_Monthly" />
+              <Mapping SourceColumn="Net_monthly" DataSetColumn="Net_monthly" />
+              <Mapping SourceColumn="Transaction_Date" DataSetColumn="Transaction_Date" />
+              <Mapping SourceColumn="SI_DR_no" DataSetColumn="SI_DR_no" />
+              <Mapping SourceColumn="Salesman" DataSetColumn="Salesman" />
+              <Mapping SourceColumn="CI_By" DataSetColumn="CI_By" />
+              <Mapping SourceColumn="transDate" DataSetColumn="transDate" />
+              <Mapping SourceColumn="NO" DataSetColumn="NO" />
+              <Mapping SourceColumn="orNo" DataSetColumn="orNo" />
+              <Mapping SourceColumn="PRIN_Amount" DataSetColumn="PRIN_Amount" />
+              <Mapping SourceColumn="Total_Amount" DataSetColumn="Total_Amount" />
+              <Mapping SourceColumn="Penalty" DataSetColumn="Penalty" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="Acct_Balance" DataSetColumn="Acct_Balance" />
+              <Mapping SourceColumn="expected_date" DataSetColumn="expected_date" />
+              <Mapping SourceColumn="expected_balance" DataSetColumn="expected_balance" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Delivery_Date" DataSetColumn="Delivery_Date" />
+              <Mapping SourceColumn="monthlyRebate" DataSetColumn="monthlyRebate" />
+              <Mapping SourceColumn="Collection_ID" DataSetColumn="Collection_ID" />
+              <Mapping SourceColumn="DR_no" DataSetColumn="DR_no" />
+              <Mapping SourceColumn="DRtype" DataSetColumn="DRtype" />
+              <Mapping SourceColumn="Rebate" DataSetColumn="Rebate" />
+              <Mapping SourceColumn="employerAddress" DataSetColumn="employerAddress" />
+              <Mapping SourceColumn="fullName" DataSetColumn="fullName" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="citiAppDatabase.dbo.SelectQueryLedgerReportsAccountNo" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillByAccountNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAccountNo" GeneratorSourceName="FillByAccountNo" GetMethodModifier="Public" GetMethodName="GetDataByAccountNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAccountNo" UserSourceName="FillByAccountNo">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SelectQueryLedgerReportsAccountNo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@drAcountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByLedgerReportAccountNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLedgerReportAccountNo" GeneratorSourceName="FillByLedgerReportAccountNo" GetMethodModifier="Public" GetMethodName="GetDataByLedgerReportAccountNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLedgerReportAccountNo" UserSourceName="FillByLedgerReportAccountNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT customerTable.last_Name, customerTable.mid_Name, customerTable.f_Name, customerTable.address, customerTable.employer, customerTable.co_Maker, customerTable.co_MakerAddress, collection.Total_LCP, 
+                  collection.Payment, collection.Balance, collection.UDI, collection.Total_Rebate, collection.PN, collection.terms, collection.GRS_Monthly, collection.Net_monthly, collection.Transaction_Date, deliveryReceipt.SI_DR_no, 
+                  deliveryReceipt.Salesman, deliveryReceipt.CI_By, collection_details.transaction_date AS transDate, collection_details.NO, collection_details.OR_Number AS orNo, collection_details.PRIN_Amount, 
+                  collection_details.Total_Amount, collection_details.Penalty, collection_details.Discount, collection_details.Acct_Balance, collection_details.expected_date, collection_details.expected_balance, collection_details.Date, 
+                  deliveryReceipt.Delivery_Date, collection.monthlyRebate, deliveryReceipt.AccountNo, collection_details.Collection_ID, deliveryReceipt.DR_no, deliveryReceipt.DRtype, collection_details.Rebate, 
+                  customerTable.employerAddress, customerTable.fullName
+FROM     customerTable INNER JOIN
+                  deliveryReceipt ON customerTable.ID_Number = deliveryReceipt.ID_Number INNER JOIN
+                  collection ON deliveryReceipt.Collection_ID = collection.Collection_ID INNER JOIN
+                  collection_details ON collection.Collection_ID = collection_details.Collection_ID
+WHERE  (deliveryReceipt.AccountNo = @accountNO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="accountNO" ColumnName="AccountNo" DataSourceName="" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@accountNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ledgerDatasets" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ledgerDatasets" msprop:Generator_UserDSName="ledgerDatasets">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ledgerTable" msprop:Generator_TableClassName="ledgerTableDataTable" msprop:Generator_TableVarName="tableledgerTable" msprop:Generator_TablePropName="ledgerTable" msprop:Generator_RowDeletingName="ledgerTableRowDeleting" msprop:Generator_RowChangingName="ledgerTableRowChanging" msprop:Generator_RowEvHandlerName="ledgerTableRowChangeEventHandler" msprop:Generator_RowDeletedName="ledgerTableRowDeleted" msprop:Generator_UserTableName="ledgerTable" msprop:Generator_RowChangedName="ledgerTableRowChanged" msprop:Generator_RowEvArgName="ledgerTableRowChangeEvent" msprop:Generator_RowClassName="ledgerTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="last_Name" msprop:Generator_ColumnVarNameInTable="columnlast_Name" msprop:Generator_ColumnPropNameInRow="last_Name" msprop:Generator_ColumnPropNameInTable="last_NameColumn" msprop:Generator_UserColumnName="last_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mid_Name" msprop:Generator_ColumnVarNameInTable="columnmid_Name" msprop:Generator_ColumnPropNameInRow="mid_Name" msprop:Generator_ColumnPropNameInTable="mid_NameColumn" msprop:Generator_UserColumnName="mid_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="f_Name" msprop:Generator_ColumnVarNameInTable="columnf_Name" msprop:Generator_ColumnPropNameInRow="f_Name" msprop:Generator_ColumnPropNameInTable="f_NameColumn" msprop:Generator_UserColumnName="f_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="employer" msprop:Generator_ColumnVarNameInTable="columnemployer" msprop:Generator_ColumnPropNameInRow="employer" msprop:Generator_ColumnPropNameInTable="employerColumn" msprop:Generator_UserColumnName="employer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="co_Maker" msprop:Generator_ColumnVarNameInTable="columnco_Maker" msprop:Generator_ColumnPropNameInRow="co_Maker" msprop:Generator_ColumnPropNameInTable="co_MakerColumn" msprop:Generator_UserColumnName="co_Maker" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="co_MakerAddress" msprop:Generator_ColumnVarNameInTable="columnco_MakerAddress" msprop:Generator_ColumnPropNameInRow="co_MakerAddress" msprop:Generator_ColumnPropNameInTable="co_MakerAddressColumn" msprop:Generator_UserColumnName="co_MakerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_LCP" msprop:Generator_ColumnVarNameInTable="columnTotal_LCP" msprop:Generator_ColumnPropNameInRow="Total_LCP" msprop:Generator_ColumnPropNameInTable="Total_LCPColumn" msprop:Generator_UserColumnName="Total_LCP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment" msprop:Generator_ColumnVarNameInTable="columnPayment" msprop:Generator_ColumnPropNameInRow="Payment" msprop:Generator_ColumnPropNameInTable="PaymentColumn" msprop:Generator_UserColumnName="Payment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UDI" msprop:Generator_ColumnVarNameInTable="columnUDI" msprop:Generator_ColumnPropNameInRow="UDI" msprop:Generator_ColumnPropNameInTable="UDIColumn" msprop:Generator_UserColumnName="UDI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_Rebate" msprop:Generator_ColumnVarNameInTable="columnTotal_Rebate" msprop:Generator_ColumnPropNameInRow="Total_Rebate" msprop:Generator_ColumnPropNameInTable="Total_RebateColumn" msprop:Generator_UserColumnName="Total_Rebate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PN" msprop:Generator_ColumnVarNameInTable="columnPN" msprop:Generator_ColumnPropNameInRow="PN" msprop:Generator_ColumnPropNameInTable="PNColumn" msprop:Generator_UserColumnName="PN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="terms" msprop:Generator_ColumnVarNameInTable="columnterms" msprop:Generator_ColumnPropNameInRow="terms" msprop:Generator_ColumnPropNameInTable="termsColumn" msprop:Generator_UserColumnName="terms" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GRS_Monthly" msprop:Generator_ColumnVarNameInTable="columnGRS_Monthly" msprop:Generator_ColumnPropNameInRow="GRS_Monthly" msprop:Generator_ColumnPropNameInTable="GRS_MonthlyColumn" msprop:Generator_UserColumnName="GRS_Monthly" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Net_monthly" msprop:Generator_ColumnVarNameInTable="columnNet_monthly" msprop:Generator_ColumnPropNameInRow="Net_monthly" msprop:Generator_ColumnPropNameInTable="Net_monthlyColumn" msprop:Generator_UserColumnName="Net_monthly" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Transaction_Date" msprop:Generator_ColumnVarNameInTable="columnTransaction_Date" msprop:Generator_ColumnPropNameInRow="Transaction_Date" msprop:Generator_ColumnPropNameInTable="Transaction_DateColumn" msprop:Generator_UserColumnName="Transaction_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SI_DR_no" msprop:Generator_ColumnVarNameInTable="columnSI_DR_no" msprop:Generator_ColumnPropNameInRow="SI_DR_no" msprop:Generator_ColumnPropNameInTable="SI_DR_noColumn" msprop:Generator_UserColumnName="SI_DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Salesman" msprop:Generator_ColumnVarNameInTable="columnSalesman" msprop:Generator_ColumnPropNameInRow="Salesman" msprop:Generator_ColumnPropNameInTable="SalesmanColumn" msprop:Generator_UserColumnName="Salesman" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CI_By" msprop:Generator_ColumnVarNameInTable="columnCI_By" msprop:Generator_ColumnPropNameInRow="CI_By" msprop:Generator_ColumnPropNameInTable="CI_ByColumn" msprop:Generator_UserColumnName="CI_By" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="transDate" msprop:Generator_ColumnVarNameInTable="columntransDate" msprop:Generator_ColumnPropNameInRow="transDate" msprop:Generator_ColumnPropNameInTable="transDateColumn" msprop:Generator_UserColumnName="transDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orNo" msprop:Generator_ColumnVarNameInTable="columnorNo" msprop:Generator_ColumnPropNameInRow="orNo" msprop:Generator_ColumnPropNameInTable="orNoColumn" msprop:Generator_UserColumnName="orNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRIN_Amount" msprop:Generator_ColumnVarNameInTable="columnPRIN_Amount" msprop:Generator_ColumnPropNameInRow="PRIN_Amount" msprop:Generator_ColumnPropNameInTable="PRIN_AmountColumn" msprop:Generator_UserColumnName="PRIN_Amount" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_Amount" msprop:Generator_ColumnVarNameInTable="columnTotal_Amount" msprop:Generator_ColumnPropNameInRow="Total_Amount" msprop:Generator_ColumnPropNameInTable="Total_AmountColumn" msprop:Generator_UserColumnName="Total_Amount" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Penalty" msprop:Generator_ColumnVarNameInTable="columnPenalty" msprop:Generator_ColumnPropNameInRow="Penalty" msprop:Generator_ColumnPropNameInTable="PenaltyColumn" msprop:Generator_UserColumnName="Penalty" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Acct_Balance" msprop:Generator_ColumnVarNameInTable="columnAcct_Balance" msprop:Generator_ColumnPropNameInRow="Acct_Balance" msprop:Generator_ColumnPropNameInTable="Acct_BalanceColumn" msprop:Generator_UserColumnName="Acct_Balance" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expected_date" msprop:Generator_ColumnVarNameInTable="columnexpected_date" msprop:Generator_ColumnPropNameInRow="expected_date" msprop:Generator_ColumnPropNameInTable="expected_dateColumn" msprop:Generator_UserColumnName="expected_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="expected_balance" msprop:Generator_ColumnVarNameInTable="columnexpected_balance" msprop:Generator_ColumnPropNameInRow="expected_balance" msprop:Generator_ColumnPropNameInTable="expected_balanceColumn" msprop:Generator_UserColumnName="expected_balance" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Delivery_Date" msprop:Generator_ColumnVarNameInTable="columnDelivery_Date" msprop:Generator_ColumnPropNameInRow="Delivery_Date" msprop:Generator_ColumnPropNameInTable="Delivery_DateColumn" msprop:Generator_UserColumnName="Delivery_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="monthlyRebate" msprop:Generator_ColumnVarNameInTable="columnmonthlyRebate" msprop:Generator_ColumnPropNameInRow="monthlyRebate" msprop:Generator_ColumnPropNameInTable="monthlyRebateColumn" msprop:Generator_UserColumnName="monthlyRebate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Collection_ID" msprop:Generator_ColumnVarNameInTable="columnCollection_ID" msprop:Generator_ColumnPropNameInRow="Collection_ID" msprop:Generator_ColumnPropNameInTable="Collection_IDColumn" msprop:Generator_UserColumnName="Collection_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DR_no" msprop:Generator_ColumnVarNameInTable="columnDR_no" msprop:Generator_ColumnPropNameInRow="DR_no" msprop:Generator_ColumnPropNameInTable="DR_noColumn" msprop:Generator_UserColumnName="DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DRtype" msprop:Generator_ColumnVarNameInTable="columnDRtype" msprop:Generator_ColumnPropNameInRow="DRtype" msprop:Generator_ColumnPropNameInTable="DRtypeColumn" msprop:Generator_UserColumnName="DRtype" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rebate" msprop:Generator_ColumnVarNameInTable="columnRebate" msprop:Generator_ColumnPropNameInRow="Rebate" msprop:Generator_ColumnPropNameInTable="RebateColumn" msprop:Generator_UserColumnName="Rebate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="employerAddress" msprop:Generator_ColumnVarNameInTable="columnemployerAddress" msprop:Generator_ColumnPropNameInRow="employerAddress" msprop:Generator_ColumnPropNameInTable="employerAddressColumn" msprop:Generator_UserColumnName="employerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fullName" msprop:Generator_ColumnVarNameInTable="columnfullName" msprop:Generator_ColumnPropNameInRow="fullName" msprop:Generator_ColumnPropNameInTable="fullNameColumn" msprop:Generator_UserColumnName="fullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

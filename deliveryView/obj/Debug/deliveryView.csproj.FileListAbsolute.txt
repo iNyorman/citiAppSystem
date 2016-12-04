@@ -1,0 +1,4 @@
+C:\Users\Jarvis\documents\visual studio 2012\Projects\citiAppSystem\deliveryView\obj\Debug\deliveryView.csprojResolveAssemblyReference.cache
+C:\Users\Jarvis\documents\visual studio 2012\Projects\citiAppSystem\deliveryView\obj\Debug\deliveryView.Form1.resources
+C:\Users\Jarvis\documents\visual studio 2012\Projects\citiAppSystem\deliveryView\obj\Debug\deliveryView.Properties.Resources.resources
+C:\Users\Jarvis\documents\visual studio 2012\Projects\citiAppSystem\deliveryView\obj\Debug\deliveryView.csproj.GenerateResource.Cache

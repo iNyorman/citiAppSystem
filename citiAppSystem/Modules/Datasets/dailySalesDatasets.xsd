@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dailySalesDatasets" targetNamespace="http://tempuri.org/dailySalesDatasets.xsd" xmlns:mstns="http://tempuri.org/dailySalesDatasets.xsd" xmlns="http://tempuri.org/dailySalesDatasets.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="citiAppDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="citiAppDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.citiAppSystem.Properties.Settings.GlobalReference.Default.citiAppDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DailySalesTableAdapter" GeneratorDataComponentClassName="DailySalesTableAdapter" Name="DailySales" UserDataComponentName="DailySalesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DR_details.AccountNo, deliveryReceipt.SI_DR_no, customerTable.last_Name, customerTable.mid_Name, customerTable.f_Name, deliveryReceipt.ID_Number, collection_details.Collection_ID, DR_details.cash, 
+                  DR_details.down_payment, products.brand, products.model, collection.terms, collection.Balance, deliveryReceipt.Delivery_Date, DR_details.LCP, collection.PN, branch.branchName, branch.branchCode, 
+                  branch.bAddress, DR_details.PN AS Expr1, DR_details.BalanceAF, DR_details.termsDR, deliveryReceipt.DR_no, customerTable.fullName
+FROM     deliveryReceipt INNER JOIN
+                  DR_details ON deliveryReceipt.AccountNo = DR_details.AccountNo INNER JOIN
+                  customerTable ON deliveryReceipt.ID_Number = customerTable.ID_Number INNER JOIN
+                  collection ON deliveryReceipt.Collection_ID = collection.Collection_ID INNER JOIN
+                  collection_details ON collection.Collection_ID = collection_details.Collection_ID INNER JOIN
+                  products ON DR_details.stockNo = products.stockNo INNER JOIN
+                  branch ON deliveryReceipt.branchNo = branch.branchNo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="SI_DR_no" DataSetColumn="SI_DR_no" />
+              <Mapping SourceColumn="last_Name" DataSetColumn="last_Name" />
+              <Mapping SourceColumn="mid_Name" DataSetColumn="mid_Name" />
+              <Mapping SourceColumn="f_Name" DataSetColumn="f_Name" />
+              <Mapping SourceColumn="ID_Number" DataSetColumn="ID_Number" />
+              <Mapping SourceColumn="Collection_ID" DataSetColumn="Collection_ID" />
+              <Mapping SourceColumn="cash" DataSetColumn="cash" />
+              <Mapping SourceColumn="down_payment" DataSetColumn="down_payment" />
+              <Mapping SourceColumn="brand" DataSetColumn="brand" />
+              <Mapping SourceColumn="model" DataSetColumn="model" />
+              <Mapping SourceColumn="terms" DataSetColumn="terms" />
+              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
+              <Mapping SourceColumn="Delivery_Date" DataSetColumn="Delivery_Date" />
+              <Mapping SourceColumn="LCP" DataSetColumn="LCP" />
+              <Mapping SourceColumn="PN" DataSetColumn="PN" />
+              <Mapping SourceColumn="branchName" DataSetColumn="branchName" />
+              <Mapping SourceColumn="branchCode" DataSetColumn="branchCode" />
+              <Mapping SourceColumn="bAddress" DataSetColumn="bAddress" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="BalanceAF" DataSetColumn="BalanceAF" />
+              <Mapping SourceColumn="termsDR" DataSetColumn="termsDR" />
+              <Mapping SourceColumn="DR_no" DataSetColumn="DR_no" />
+              <Mapping SourceColumn="fullName" DataSetColumn="fullName" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBydate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBydate" GeneratorSourceName="FillBydate" GetMethodModifier="Public" GetMethodName="GetDataBydate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBydate" UserSourceName="FillBydate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                      DR_details.AccountNo, deliveryReceipt.SI_DR_no, customerTable.last_Name, customerTable.mid_Name, customerTable.f_Name, deliveryReceipt.ID_Number, 
+                      collection_details.Collection_ID, DR_details.cash, DR_details.down_payment, products.brand, products.model, collection.terms, collection.Balance, 
+                      deliveryReceipt.Delivery_Date, DR_details.LCP, collection.PN, branch.branchName, branch.branchCode, branch.bAddress, DR_details.BalanceAF, 
+                      deliveryReceipt.DR_no, DR_details.termsDR, DR_details.PN AS Expr1, customerTable.fullName
+FROM         deliveryReceipt INNER JOIN
+                      DR_details ON deliveryReceipt.AccountNo = DR_details.AccountNo INNER JOIN
+                      customerTable ON deliveryReceipt.ID_Number = customerTable.ID_Number INNER JOIN
+                      collection ON deliveryReceipt.Collection_ID = collection.Collection_ID LEFT OUTER JOIN
+                      collection_details ON collection.Collection_ID = collection_details.Collection_ID LEFT OUTER JOIN
+                      products ON DR_details.stockNo = products.stockNo INNER JOIN
+                      branch ON deliveryReceipt.branchNo = branch.branchNo
+WHERE     (deliveryReceipt.Delivery_Date &gt;= @startDate) AND (deliveryReceipt.Delivery_Date &lt;= @endDate) AND (deliveryReceipt.branchNo = @branchNO) AND 
+                      (DR_details.pStatus = 'Primary' OR
+                      DR_details.pStatus = 'Free')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="startDate" ColumnName="Delivery_Date" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@startDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Delivery_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="endDate" ColumnName="Delivery_Date" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@endDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Delivery_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="branchNO" ColumnName="branchNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@branchNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="branchNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dailySalesDatasets" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dailySalesDatasets" msprop:Generator_UserDSName="dailySalesDatasets">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DailySales" msprop:Generator_TableClassName="DailySalesDataTable" msprop:Generator_TableVarName="tableDailySales" msprop:Generator_TablePropName="DailySales" msprop:Generator_RowDeletingName="DailySalesRowDeleting" msprop:Generator_RowChangingName="DailySalesRowChanging" msprop:Generator_RowEvHandlerName="DailySalesRowChangeEventHandler" msprop:Generator_RowDeletedName="DailySalesRowDeleted" msprop:Generator_UserTableName="DailySales" msprop:Generator_RowChangedName="DailySalesRowChanged" msprop:Generator_RowEvArgName="DailySalesRowChangeEvent" msprop:Generator_RowClassName="DailySalesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SI_DR_no" msprop:Generator_ColumnVarNameInTable="columnSI_DR_no" msprop:Generator_ColumnPropNameInRow="SI_DR_no" msprop:Generator_ColumnPropNameInTable="SI_DR_noColumn" msprop:Generator_UserColumnName="SI_DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="last_Name" msprop:Generator_ColumnVarNameInTable="columnlast_Name" msprop:Generator_ColumnPropNameInRow="last_Name" msprop:Generator_ColumnPropNameInTable="last_NameColumn" msprop:Generator_UserColumnName="last_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mid_Name" msprop:Generator_ColumnVarNameInTable="columnmid_Name" msprop:Generator_ColumnPropNameInRow="mid_Name" msprop:Generator_ColumnPropNameInTable="mid_NameColumn" msprop:Generator_UserColumnName="mid_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="f_Name" msprop:Generator_ColumnVarNameInTable="columnf_Name" msprop:Generator_ColumnPropNameInRow="f_Name" msprop:Generator_ColumnPropNameInTable="f_NameColumn" msprop:Generator_UserColumnName="f_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_Number" msprop:Generator_ColumnVarNameInTable="columnID_Number" msprop:Generator_ColumnPropNameInRow="ID_Number" msprop:Generator_ColumnPropNameInTable="ID_NumberColumn" msprop:Generator_UserColumnName="ID_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Collection_ID" msprop:Generator_ColumnVarNameInTable="columnCollection_ID" msprop:Generator_ColumnPropNameInRow="Collection_ID" msprop:Generator_ColumnPropNameInTable="Collection_IDColumn" msprop:Generator_UserColumnName="Collection_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cash" msprop:Generator_ColumnVarNameInTable="columncash" msprop:Generator_ColumnPropNameInRow="cash" msprop:Generator_ColumnPropNameInTable="cashColumn" msprop:Generator_UserColumnName="cash" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="down_payment" msprop:Generator_ColumnVarNameInTable="columndown_payment" msprop:Generator_ColumnPropNameInRow="down_payment" msprop:Generator_ColumnPropNameInTable="down_paymentColumn" msprop:Generator_UserColumnName="down_payment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="brand" msprop:Generator_ColumnVarNameInTable="columnbrand" msprop:Generator_ColumnPropNameInRow="brand" msprop:Generator_ColumnPropNameInTable="brandColumn" msprop:Generator_UserColumnName="brand" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="model" msprop:Generator_ColumnVarNameInTable="columnmodel" msprop:Generator_ColumnPropNameInRow="model" msprop:Generator_ColumnPropNameInTable="modelColumn" msprop:Generator_UserColumnName="model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="terms" msprop:Generator_ColumnVarNameInTable="columnterms" msprop:Generator_ColumnPropNameInRow="terms" msprop:Generator_ColumnPropNameInTable="termsColumn" msprop:Generator_UserColumnName="terms" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Delivery_Date" msprop:Generator_ColumnVarNameInTable="columnDelivery_Date" msprop:Generator_ColumnPropNameInRow="Delivery_Date" msprop:Generator_ColumnPropNameInTable="Delivery_DateColumn" msprop:Generator_UserColumnName="Delivery_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LCP" msprop:Generator_ColumnVarNameInTable="columnLCP" msprop:Generator_ColumnPropNameInRow="LCP" msprop:Generator_ColumnPropNameInTable="LCPColumn" msprop:Generator_UserColumnName="LCP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PN" msprop:Generator_ColumnVarNameInTable="columnPN" msprop:Generator_ColumnPropNameInRow="PN" msprop:Generator_ColumnPropNameInTable="PNColumn" msprop:Generator_UserColumnName="PN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branchName" msprop:Generator_ColumnVarNameInTable="columnbranchName" msprop:Generator_ColumnPropNameInRow="branchName" msprop:Generator_ColumnPropNameInTable="branchNameColumn" msprop:Generator_UserColumnName="branchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branchCode" msprop:Generator_ColumnVarNameInTable="columnbranchCode" msprop:Generator_ColumnPropNameInRow="branchCode" msprop:Generator_ColumnPropNameInTable="branchCodeColumn" msprop:Generator_UserColumnName="branchCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="bAddress" msprop:Generator_ColumnVarNameInTable="columnbAddress" msprop:Generator_ColumnPropNameInRow="bAddress" msprop:Generator_ColumnPropNameInTable="bAddressColumn" msprop:Generator_UserColumnName="bAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BalanceAF" msprop:Generator_ColumnVarNameInTable="columnBalanceAF" msprop:Generator_ColumnPropNameInRow="BalanceAF" msprop:Generator_ColumnPropNameInTable="BalanceAFColumn" msprop:Generator_UserColumnName="BalanceAF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="termsDR" msprop:Generator_ColumnVarNameInTable="columntermsDR" msprop:Generator_ColumnPropNameInRow="termsDR" msprop:Generator_ColumnPropNameInTable="termsDRColumn" msprop:Generator_UserColumnName="termsDR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DR_no" msprop:Generator_ColumnVarNameInTable="columnDR_no" msprop:Generator_ColumnPropNameInRow="DR_no" msprop:Generator_ColumnPropNameInTable="DR_noColumn" msprop:Generator_UserColumnName="DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fullName" msprop:Generator_ColumnVarNameInTable="columnfullName" msprop:Generator_ColumnPropNameInRow="fullName" msprop:Generator_ColumnPropNameInTable="fullNameColumn" msprop:Generator_UserColumnName="fullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

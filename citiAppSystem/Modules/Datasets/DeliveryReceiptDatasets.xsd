@@ -1,0 +1,772 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DeliveryReceiptDatasets" targetNamespace="http://tempuri.org/DeliveryReceiptDatasets.xsd" xmlns:mstns="http://tempuri.org/DeliveryReceiptDatasets.xsd" xmlns="http://tempuri.org/DeliveryReceiptDatasets.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="citiAppDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="citiAppDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.citiAppSystem.Properties.Settings.GlobalReference.Default.citiAppDatabaseConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="deliveryReceiptTableAdapter" GeneratorDataComponentClassName="deliveryReceiptTableAdapter" Name="deliveryReceipt" UserDataComponentName="deliveryReceiptTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        deliveryReceipt.Id, deliveryReceipt.AccountNo, deliveryReceipt.Account_Type, deliveryReceipt.Delivery_Date, deliveryReceipt.SI_DR_no, 
+                         deliveryReceipt.Salesman, deliveryReceipt.CI_By, deliveryReceipt.ID_Number, deliveryReceipt.Status, branch.branchName, customerTable.last_Name, 
+                         customerTable.mid_Name, customerTable.f_Name, customerTable.employer, customerTable.contact, customerTable.co_Maker, customerTable.address, 
+                         customerTable.co_MakerAddress, customerTable.civil_status, customerTable.employerAddress, customerTable.fullName, deliveryReceipt.branchNo, 
+                         deliveryReceipt.DR_no, deliveryReceipt.DRtype, deliveryReceipt.Collection_ID
+FROM            deliveryReceipt INNER JOIN
+                         customerTable ON deliveryReceipt.ID_Number = customerTable.ID_Number INNER JOIN
+                         branch ON deliveryReceipt.branchNo = branch.branchNo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="Account_Type" DataSetColumn="Account_Type" />
+              <Mapping SourceColumn="Delivery_Date" DataSetColumn="Delivery_Date" />
+              <Mapping SourceColumn="SI_DR_no" DataSetColumn="SI_DR_no" />
+              <Mapping SourceColumn="Salesman" DataSetColumn="Salesman" />
+              <Mapping SourceColumn="CI_By" DataSetColumn="CI_By" />
+              <Mapping SourceColumn="ID_Number" DataSetColumn="ID_Number" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="branchName" DataSetColumn="branchName" />
+              <Mapping SourceColumn="last_Name" DataSetColumn="last_Name" />
+              <Mapping SourceColumn="mid_Name" DataSetColumn="mid_Name" />
+              <Mapping SourceColumn="f_Name" DataSetColumn="f_Name" />
+              <Mapping SourceColumn="employer" DataSetColumn="employer" />
+              <Mapping SourceColumn="contact" DataSetColumn="contact" />
+              <Mapping SourceColumn="co_Maker" DataSetColumn="co_Maker" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="co_MakerAddress" DataSetColumn="co_MakerAddress" />
+              <Mapping SourceColumn="civil_status" DataSetColumn="civil_status" />
+              <Mapping SourceColumn="employerAddress" DataSetColumn="employerAddress" />
+              <Mapping SourceColumn="fullName" DataSetColumn="fullName" />
+              <Mapping SourceColumn="branchNo" DataSetColumn="branchNo" />
+              <Mapping SourceColumn="DR_no" DataSetColumn="DR_no" />
+              <Mapping SourceColumn="DRtype" DataSetColumn="DRtype" />
+              <Mapping SourceColumn="Collection_ID" DataSetColumn="Collection_ID" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAccountNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAccountNo" GeneratorSourceName="FillByAccountNo" GetMethodModifier="Public" GetMethodName="GetDataByAccountNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAccountNo" UserSourceName="FillByAccountNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        deliveryReceipt.Id, deliveryReceipt.AccountNo, deliveryReceipt.Account_Type, deliveryReceipt.Delivery_Date, deliveryReceipt.SI_DR_no, deliveryReceipt.Salesman, deliveryReceipt.CI_By, 
+                         deliveryReceipt.ID_Number, deliveryReceipt.Status, branch.branchName, customerTable.last_Name, customerTable.mid_Name, customerTable.f_Name, customerTable.employer, customerTable.contact, 
+                         customerTable.co_Maker, customerTable.address, customerTable.co_MakerAddress, customerTable.civil_status, customerTable.employerAddress, customerTable.fullName, deliveryReceipt.branchNo, 
+                         deliveryReceipt.DR_no, deliveryReceipt.DRtype
+FROM            deliveryReceipt INNER JOIN
+                         customerTable ON deliveryReceipt.ID_Number = customerTable.ID_Number INNER JOIN
+                         branch ON deliveryReceipt.branchNo = branch.branchNo
+WHERE        (deliveryReceipt.AccountNo = @AccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="AccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>INSERT INTO deliveryReceipt
+                         (AccountNo, Account_Type, SI_DR_no, Salesman, CI_By, ID_Number, Collection_ID, Status, Delivery_Date, branchNo, DR_no, DRtype)
+VALUES        (@AccountNo,@Account_Type,@SI_DR_no,@Salesman,@CI_By,@ID_Number,@Collection_ID,@Status,@Delivery_Date,@branchNo,@DR_no,@DRtype); 
+SELECT Id, AccountNo, Account_Type, SI_DR_no, Salesman, CI_By, ID_Number, Collection_ID, Status, Delivery_Date, branchNo, DR_no, DRtype FROM deliveryReceipt WHERE (AccountNo = @AccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="AccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Account_Type" ColumnName="Account_Type" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Account_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Account_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SI_DR_no" ColumnName="SI_DR_no" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@SI_DR_no" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="SI_DR_no" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Salesman" ColumnName="Salesman" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Salesman" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Salesman" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CI_By" ColumnName="CI_By" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CI_By" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CI_By" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ID_Number" ColumnName="ID_Number" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@ID_Number" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="ID_Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Collection_ID" ColumnName="Collection_ID" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Collection_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Collection_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Status" ColumnName="Status" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="Delivery_Date" ColumnName="Delivery_Date" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@Delivery_Date" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Delivery_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="branchNo" ColumnName="branchNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@branchNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="branchNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="DR_no" ColumnName="DR_no" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@DR_no" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DR_no" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="DRtype" ColumnName="DRtype" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@DRtype" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DRtype" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateAccountNo" Modifier="Public" Name="UpdateAccountNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateAccountNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE deliveryReceipt
+SET          AccountNo = @newAccountNo
+WHERE  (AccountNo = @oldAccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="newAccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="oldAccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@oldAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateC_TransAccountNo" Modifier="Public" Name="UpdateC_TransAccountNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateC_TransAccountNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE c_TransTable
+SET          AccountNo = @newAccountNo
+WHERE  (AccountNo = @oldAccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="newAccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.c_TransTable" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="oldAccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.c_TransTable" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@oldAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateColDetails_CollectionID_AccountNo" Modifier="Public" Name="UpdateColDetails_CollectionID_AccountNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateColDetails_CollectionID_AccountNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE collection_details
+SET          Collection_ID = @newAccountNo
+WHERE  (Collection_ID = @oldAccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="newAccountNo" ColumnName="Collection_ID" DataSourceName="citiAppDatabase.dbo.collection_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Collection_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="oldAccountNo" ColumnName="Collection_ID" DataSourceName="citiAppDatabase.dbo.collection_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@oldAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Collection_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCollectionId_AccountNo" Modifier="Public" Name="UpdateCollectionId_AccountNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="UpdateCollectionId_AccountNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE collection
+SET          Collection_ID = @newAccountNo
+WHERE  (Collection_ID = @oldAccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="newAccountNo" ColumnName="Collection_ID" DataSourceName="citiAppDatabase.dbo.collection" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Collection_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="oldAccountNo" ColumnName="Collection_ID" DataSourceName="citiAppDatabase.dbo.collection" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@oldAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Collection_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCustomer" Modifier="Public" Name="UpdateCustomer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="UpdateCustomer">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE deliveryReceipt
+SET          ID_Number = @ID_Number
+WHERE  (AccountNo = @accno)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="ID_Number" ColumnName="ID_Number" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@ID_Number" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="ID_Number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="accno" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@accno" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDR_DetailsAccountNo" Modifier="Public" Name="UpdateDR_DetailsAccountNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="UpdateDR_DetailsAccountNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE DR_details
+SET          AccountNo = @newAccountNo
+WHERE  (AccountNo = @oldAccountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="newAccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="oldAccountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@oldAccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryDRForDR" Modifier="Public" Name="UpdateQueryDRForDR" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="UpdateQueryDRForDR">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE    deliveryReceipt
+SET              Account_Type = @accType, Delivery_Date = @deliveryDate, SI_DR_no = @SI_DR_no, Salesman = @salesman, CI_By = @ci_by, DR_no = @drNo, 
+                      DRtype = @drType, Collection_ID = @CollectionID
+WHERE     (AccountNo = @accountNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="accType" ColumnName="Account_Type" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@accType" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Account_Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="deliveryDate" ColumnName="Delivery_Date" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@deliveryDate" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Delivery_Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="SI_DR_no" ColumnName="SI_DR_no" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@SI_DR_no" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="SI_DR_no" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="salesman" ColumnName="Salesman" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@salesman" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Salesman" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="ci_by" ColumnName="CI_By" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@ci_by" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="CI_By" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="drNo" ColumnName="DR_no" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@drNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DR_no" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="drType" ColumnName="DRtype" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@drType" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DRtype" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="CollectionID" ColumnName="Collection_ID" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@CollectionID" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Collection_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="accountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.deliveryReceipt" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@accountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DR_detailsTableAdapter" GeneratorDataComponentClassName="DR_detailsTableAdapter" Name="DR_details" UserDataComponentName="DR_detailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="citiAppDatabase.dbo.DR_details" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [DR_details] WHERE (([id] = @Original_id) AND ([DR_Details_ID] = @Original_DR_Details_ID) AND ((@IsNull_LCP = 1 AND [LCP] IS NULL) OR ([LCP] = @Original_LCP)) AND ((@IsNull_stockNo = 1 AND [stockNo] IS NULL) OR ([stockNo] = @Original_stockNo)) AND ((@IsNull_AccountNo = 1 AND [AccountNo] IS NULL) OR ([AccountNo] = @Original_AccountNo)) AND ((@IsNull_qnty = 1 AND [qnty] IS NULL) OR ([qnty] = @Original_qnty)) AND ((@IsNull_remarks = 1 AND [remarks] IS NULL) OR ([remarks] = @Original_remarks)) AND ((@IsNull_down_payment = 1 AND [down_payment] IS NULL) OR ([down_payment] = @Original_down_payment)) AND ((@IsNull_or_number = 1 AND [or_number] IS NULL) OR ([or_number] = @Original_or_number)) AND ((@IsNull_paymentType = 1 AND [paymentType] IS NULL) OR ([paymentType] = @Original_paymentType)) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)) AND ((@IsNull_pStatus = 1 AND [pStatus] IS NULL) OR ([pStatus] = @Original_pStatus)) AND ((@IsNull_cash = 1 AND [cash] IS NULL) OR ([cash] = @Original_cash)) AND ((@IsNull_orAmt = 1 AND [orAmt] IS NULL) OR ([orAmt] = @Original_orAmt)) AND ((@IsNull_model = 1 AND [model] IS NULL) OR ([model] = @Original_model)) AND ((@IsNull_serialNo = 1 AND [serialNo] IS NULL) OR ([serialNo] = @Original_serialNo)) AND ((@IsNull_brand = 1 AND [brand] IS NULL) OR ([brand] = @Original_brand)) AND ((@IsNull_PN = 1 AND [PN] IS NULL) OR ([PN] = @Original_PN)) AND ((@IsNull_BalanceAF = 1 AND [BalanceAF] IS NULL) OR ([BalanceAF] = @Original_BalanceAF)) AND ((@IsNull_termsDR = 1 AND [termsDR] IS NULL) OR ([termsDR] = @Original_termsDR)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DR_Details_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_Details_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LCP" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LCP" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_LCP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LCP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_stockNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="stockNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_stockNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_qnty" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="qnty" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_qnty" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="qnty" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_remarks" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_down_payment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="down_payment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_down_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="down_payment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_or_number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="or_number" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_or_number" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="or_number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_paymentType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="paymentType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_paymentType" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="paymentType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_description" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_pStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_pStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="pStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_cash" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cash" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_cash" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="cash" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_orAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="orAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_orAmt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="orAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_model" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="model" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_model" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="model" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serialNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serialNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_serialNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="serialNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_brand" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="brand" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_brand" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="brand" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PN" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BalanceAF" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BalanceAF" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BalanceAF" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BalanceAF" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_termsDR" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="termsDR" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_termsDR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="termsDR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [DR_details] ([DR_Details_ID], [LCP], [stockNo], [AccountNo], [qnty], [remarks], [down_payment], [or_number], [paymentType], [description], [pStatus], [cash], [orAmt], [model], [serialNo], [brand], [PN], [BalanceAF], [termsDR]) VALUES (@DR_Details_ID, @LCP, @stockNo, @AccountNo, @qnty, @remarks, @down_payment, @or_number, @paymentType, @description, @pStatus, @cash, @orAmt, @model, @serialNo, @brand, @PN, @BalanceAF, @termsDR);
+SELECT id, DR_Details_ID, LCP, stockNo, AccountNo, qnty, remarks, down_payment, or_number, paymentType, description, pStatus, cash, orAmt, model, serialNo, brand, PN, BalanceAF, termsDR FROM DR_details WHERE (DR_Details_ID = @DR_Details_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DR_Details_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_Details_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LCP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LCP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@stockNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@qnty" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="qnty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@down_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="down_payment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@or_number" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="or_number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@paymentType" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="paymentType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@pStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="pStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@cash" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="cash" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@orAmt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="orAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@model" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="model" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@serialNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="serialNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@brand" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="brand" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BalanceAF" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BalanceAF" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@termsDR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="termsDR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, DR_Details_ID, LCP, stockNo, AccountNo, qnty, remarks, down_payment, or_number, paymentType, description, pStatus, cash, orAmt, model, serialNo, brand, PN, BalanceAF, termsDR
+FROM     DR_details</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [DR_details] SET [DR_Details_ID] = @DR_Details_ID, [LCP] = @LCP, [stockNo] = @stockNo, [AccountNo] = @AccountNo, [qnty] = @qnty, [remarks] = @remarks, [down_payment] = @down_payment, [or_number] = @or_number, [paymentType] = @paymentType, [description] = @description, [pStatus] = @pStatus, [cash] = @cash, [orAmt] = @orAmt, [model] = @model, [serialNo] = @serialNo, [brand] = @brand, [PN] = @PN, [BalanceAF] = @BalanceAF, [termsDR] = @termsDR WHERE (([id] = @Original_id) AND ([DR_Details_ID] = @Original_DR_Details_ID) AND ((@IsNull_LCP = 1 AND [LCP] IS NULL) OR ([LCP] = @Original_LCP)) AND ((@IsNull_stockNo = 1 AND [stockNo] IS NULL) OR ([stockNo] = @Original_stockNo)) AND ((@IsNull_AccountNo = 1 AND [AccountNo] IS NULL) OR ([AccountNo] = @Original_AccountNo)) AND ((@IsNull_qnty = 1 AND [qnty] IS NULL) OR ([qnty] = @Original_qnty)) AND ((@IsNull_remarks = 1 AND [remarks] IS NULL) OR ([remarks] = @Original_remarks)) AND ((@IsNull_down_payment = 1 AND [down_payment] IS NULL) OR ([down_payment] = @Original_down_payment)) AND ((@IsNull_or_number = 1 AND [or_number] IS NULL) OR ([or_number] = @Original_or_number)) AND ((@IsNull_paymentType = 1 AND [paymentType] IS NULL) OR ([paymentType] = @Original_paymentType)) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)) AND ((@IsNull_pStatus = 1 AND [pStatus] IS NULL) OR ([pStatus] = @Original_pStatus)) AND ((@IsNull_cash = 1 AND [cash] IS NULL) OR ([cash] = @Original_cash)) AND ((@IsNull_orAmt = 1 AND [orAmt] IS NULL) OR ([orAmt] = @Original_orAmt)) AND ((@IsNull_model = 1 AND [model] IS NULL) OR ([model] = @Original_model)) AND ((@IsNull_serialNo = 1 AND [serialNo] IS NULL) OR ([serialNo] = @Original_serialNo)) AND ((@IsNull_brand = 1 AND [brand] IS NULL) OR ([brand] = @Original_brand)) AND ((@IsNull_PN = 1 AND [PN] IS NULL) OR ([PN] = @Original_PN)) AND ((@IsNull_BalanceAF = 1 AND [BalanceAF] IS NULL) OR ([BalanceAF] = @Original_BalanceAF)) AND ((@IsNull_termsDR = 1 AND [termsDR] IS NULL) OR ([termsDR] = @Original_termsDR)));
+SELECT id, DR_Details_ID, LCP, stockNo, AccountNo, qnty, remarks, down_payment, or_number, paymentType, description, pStatus, cash, orAmt, model, serialNo, brand, PN, BalanceAF, termsDR FROM DR_details WHERE (DR_Details_ID = @DR_Details_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DR_Details_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_Details_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LCP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LCP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@stockNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@qnty" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="qnty" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@down_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="down_payment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@or_number" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="or_number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@paymentType" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="paymentType" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@pStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="pStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@cash" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="cash" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@orAmt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="orAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@model" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="model" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@serialNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="serialNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@brand" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="brand" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@PN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BalanceAF" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BalanceAF" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@termsDR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="termsDR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DR_Details_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DR_Details_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LCP" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="LCP" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_LCP" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="LCP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_stockNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="stockNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_stockNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AccountNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AccountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_qnty" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="qnty" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_qnty" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="qnty" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_remarks" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_down_payment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="down_payment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_down_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="down_payment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_or_number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="or_number" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_or_number" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="or_number" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_paymentType" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="paymentType" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_paymentType" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="paymentType" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_description" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_description" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_pStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="pStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_pStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="pStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_cash" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="cash" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_cash" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="cash" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_orAmt" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="orAmt" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_orAmt" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="orAmt" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_model" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="model" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_model" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="model" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_serialNo" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="serialNo" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_serialNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="serialNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_brand" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="brand" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_brand" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="brand" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PN" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_PN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="PN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BalanceAF" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BalanceAF" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BalanceAF" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="BalanceAF" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_termsDR" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="termsDR" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_termsDR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="termsDR" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="DR_Details_ID" DataSetColumn="DR_Details_ID" />
+              <Mapping SourceColumn="LCP" DataSetColumn="LCP" />
+              <Mapping SourceColumn="stockNo" DataSetColumn="stockNo" />
+              <Mapping SourceColumn="AccountNo" DataSetColumn="AccountNo" />
+              <Mapping SourceColumn="qnty" DataSetColumn="qnty" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="down_payment" DataSetColumn="down_payment" />
+              <Mapping SourceColumn="or_number" DataSetColumn="or_number" />
+              <Mapping SourceColumn="paymentType" DataSetColumn="paymentType" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="pStatus" DataSetColumn="pStatus" />
+              <Mapping SourceColumn="cash" DataSetColumn="cash" />
+              <Mapping SourceColumn="orAmt" DataSetColumn="orAmt" />
+              <Mapping SourceColumn="model" DataSetColumn="model" />
+              <Mapping SourceColumn="serialNo" DataSetColumn="serialNo" />
+              <Mapping SourceColumn="brand" DataSetColumn="brand" />
+              <Mapping SourceColumn="PN" DataSetColumn="PN" />
+              <Mapping SourceColumn="BalanceAF" DataSetColumn="BalanceAF" />
+              <Mapping SourceColumn="termsDR" DataSetColumn="termsDR" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM DR_details
+WHERE        (DR_Details_ID = @DR_Details_ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="DR_Details_ID" ColumnName="DR_Details_ID" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@DR_Details_ID" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DR_Details_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="citiAppDatabase.dbo.DR_details" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByAccountNo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAccountNo" GeneratorSourceName="FillByAccountNo" GetMethodModifier="Public" GetMethodName="GetDataByAccountNo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAccountNo" UserSourceName="FillByAccountNo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id, DR_Details_ID, LCP, stockNo, AccountNo, qnty, remarks, down_payment, or_number, paymentType, description, pStatus, cash, orAmt, model, serialNo, brand, PN, BalanceAF, termsDR
+FROM     DR_details
+WHERE AccountNo = @accountNo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="accountNo" ColumnName="AccountNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@accountNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="AccountNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDescriptionByStockNo" Modifier="Public" Name="UpdateDescriptionByStockNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateDescriptionByStockNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE    DR_details
+SET              description = @description
+WHERE     (stockNo = @stockNo); </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="description" ColumnName="description" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@description" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="description" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="stockNo" ColumnName="stockNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@stockNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQueryPrimaryInstallment" Modifier="Public" Name="UpdateQueryPrimaryInstallment" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQueryPrimaryInstallment">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       DR_details
+SET                down_payment = @down_payment, PN = @PN, BalanceAF = @BalanceAF, LCP = @lcp, orAmt = @orAmt, or_number = @orNumber
+WHERE        (pStatus = 'Primary') AND (DR_Details_ID = @drDetailsId);   
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="down_payment" ColumnName="down_payment" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@down_payment" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="down_payment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="PN" ColumnName="PN" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@PN" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="PN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="BalanceAF" ColumnName="BalanceAF" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@BalanceAF" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="BalanceAF" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="lcp" ColumnName="LCP" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@lcp" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="LCP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="orAmt" ColumnName="orAmt" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@orAmt" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="orAmt" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="orNumber" ColumnName="or_number" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@orNumber" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="or_number" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="drDetailsId" ColumnName="DR_Details_ID" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@drDetailsId" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="DR_Details_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="citiAppDatabaseConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateStockNo" Modifier="Public" Name="UpdateStockNo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateStockNo">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE       DR_details
+SET                stockNo = @newStockNo, model = @newModel, serialNo = @newSerial, brand =@newBrand
+WHERE        (stockNo = @oldStock);   
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="newStockNo" ColumnName="stockNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newStockNo" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="newModel" ColumnName="model" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newModel" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="model" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="newSerial" ColumnName="serialNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newSerial" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="serialNo" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="newBrand" ColumnName="brand" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@newBrand" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="brand" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="oldStock" ColumnName="stockNo" DataSourceName="citiAppDatabase.dbo.DR_details" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@oldStock" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="stockNo" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DeliveryReceiptDatasets" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DeliveryReceiptDatasets" msprop:Generator_UserDSName="DeliveryReceiptDatasets">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="deliveryReceipt" msprop:Generator_TableClassName="deliveryReceiptDataTable" msprop:Generator_TableVarName="tabledeliveryReceipt" msprop:Generator_RowChangedName="deliveryReceiptRowChanged" msprop:Generator_TablePropName="deliveryReceipt" msprop:Generator_RowDeletingName="deliveryReceiptRowDeleting" msprop:Generator_RowChangingName="deliveryReceiptRowChanging" msprop:Generator_RowEvHandlerName="deliveryReceiptRowChangeEventHandler" msprop:Generator_RowDeletedName="deliveryReceiptRowDeleted" msprop:Generator_RowClassName="deliveryReceiptRow" msprop:Generator_UserTableName="deliveryReceipt" msprop:Generator_RowEvArgName="deliveryReceiptRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Account_Type" msprop:Generator_ColumnVarNameInTable="columnAccount_Type" msprop:Generator_ColumnPropNameInRow="Account_Type" msprop:Generator_ColumnPropNameInTable="Account_TypeColumn" msprop:Generator_UserColumnName="Account_Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Delivery_Date" msprop:Generator_ColumnVarNameInTable="columnDelivery_Date" msprop:Generator_ColumnPropNameInRow="Delivery_Date" msprop:Generator_ColumnPropNameInTable="Delivery_DateColumn" msprop:Generator_UserColumnName="Delivery_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SI_DR_no" msprop:Generator_ColumnVarNameInTable="columnSI_DR_no" msprop:Generator_ColumnPropNameInRow="SI_DR_no" msprop:Generator_ColumnPropNameInTable="SI_DR_noColumn" msprop:Generator_UserColumnName="SI_DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Salesman" msprop:Generator_ColumnVarNameInTable="columnSalesman" msprop:Generator_ColumnPropNameInRow="Salesman" msprop:Generator_ColumnPropNameInTable="SalesmanColumn" msprop:Generator_UserColumnName="Salesman" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CI_By" msprop:Generator_ColumnVarNameInTable="columnCI_By" msprop:Generator_ColumnPropNameInRow="CI_By" msprop:Generator_ColumnPropNameInTable="CI_ByColumn" msprop:Generator_UserColumnName="CI_By" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID_Number" msprop:Generator_ColumnVarNameInTable="columnID_Number" msprop:Generator_ColumnPropNameInRow="ID_Number" msprop:Generator_ColumnPropNameInTable="ID_NumberColumn" msprop:Generator_UserColumnName="ID_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branchName" msprop:Generator_ColumnVarNameInTable="columnbranchName" msprop:Generator_ColumnPropNameInRow="branchName" msprop:Generator_ColumnPropNameInTable="branchNameColumn" msprop:Generator_UserColumnName="branchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="last_Name" msprop:Generator_ColumnVarNameInTable="columnlast_Name" msprop:Generator_ColumnPropNameInRow="last_Name" msprop:Generator_ColumnPropNameInTable="last_NameColumn" msprop:Generator_UserColumnName="last_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mid_Name" msprop:Generator_ColumnVarNameInTable="columnmid_Name" msprop:Generator_ColumnPropNameInRow="mid_Name" msprop:Generator_ColumnPropNameInTable="mid_NameColumn" msprop:Generator_UserColumnName="mid_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="f_Name" msprop:Generator_ColumnVarNameInTable="columnf_Name" msprop:Generator_ColumnPropNameInRow="f_Name" msprop:Generator_ColumnPropNameInTable="f_NameColumn" msprop:Generator_UserColumnName="f_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="employer" msprop:Generator_ColumnVarNameInTable="columnemployer" msprop:Generator_ColumnPropNameInRow="employer" msprop:Generator_ColumnPropNameInTable="employerColumn" msprop:Generator_UserColumnName="employer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contact" msprop:Generator_ColumnVarNameInTable="columncontact" msprop:Generator_ColumnPropNameInRow="contact" msprop:Generator_ColumnPropNameInTable="contactColumn" msprop:Generator_UserColumnName="contact" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="co_Maker" msprop:Generator_ColumnVarNameInTable="columnco_Maker" msprop:Generator_ColumnPropNameInRow="co_Maker" msprop:Generator_ColumnPropNameInTable="co_MakerColumn" msprop:Generator_UserColumnName="co_Maker" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="co_MakerAddress" msprop:Generator_ColumnVarNameInTable="columnco_MakerAddress" msprop:Generator_ColumnPropNameInRow="co_MakerAddress" msprop:Generator_ColumnPropNameInTable="co_MakerAddressColumn" msprop:Generator_UserColumnName="co_MakerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="civil_status" msprop:Generator_ColumnVarNameInTable="columncivil_status" msprop:Generator_ColumnPropNameInRow="civil_status" msprop:Generator_ColumnPropNameInTable="civil_statusColumn" msprop:Generator_UserColumnName="civil_status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="employerAddress" msprop:Generator_ColumnVarNameInTable="columnemployerAddress" msprop:Generator_ColumnPropNameInRow="employerAddress" msprop:Generator_ColumnPropNameInTable="employerAddressColumn" msprop:Generator_UserColumnName="employerAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fullName" msprop:Generator_ColumnVarNameInTable="columnfullName" msprop:Generator_ColumnPropNameInRow="fullName" msprop:Generator_ColumnPropNameInTable="fullNameColumn" msprop:Generator_UserColumnName="fullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branchNo" msprop:Generator_ColumnVarNameInTable="columnbranchNo" msprop:Generator_ColumnPropNameInRow="branchNo" msprop:Generator_ColumnPropNameInTable="branchNoColumn" msprop:Generator_UserColumnName="branchNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DR_no" msprop:Generator_ColumnVarNameInTable="columnDR_no" msprop:Generator_ColumnPropNameInRow="DR_no" msprop:Generator_ColumnPropNameInTable="DR_noColumn" msprop:Generator_UserColumnName="DR_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DRtype" msprop:Generator_ColumnVarNameInTable="columnDRtype" msprop:Generator_ColumnPropNameInRow="DRtype" msprop:Generator_ColumnPropNameInTable="DRtypeColumn" msprop:Generator_UserColumnName="DRtype" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Collection_ID" msprop:Generator_ColumnVarNameInTable="columnCollection_ID" msprop:Generator_ColumnPropNameInRow="Collection_ID" msprop:Generator_ColumnPropNameInTable="Collection_IDColumn" msprop:Generator_UserColumnName="Collection_ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DR_details" msprop:Generator_TableClassName="DR_detailsDataTable" msprop:Generator_TableVarName="tableDR_details" msprop:Generator_TablePropName="DR_details" msprop:Generator_RowDeletingName="DR_detailsRowDeleting" msprop:Generator_RowChangingName="DR_detailsRowChanging" msprop:Generator_RowEvHandlerName="DR_detailsRowChangeEventHandler" msprop:Generator_RowDeletedName="DR_detailsRowDeleted" msprop:Generator_UserTableName="DR_details" msprop:Generator_RowChangedName="DR_detailsRowChanged" msprop:Generator_RowEvArgName="DR_detailsRowChangeEvent" msprop:Generator_RowClassName="DR_detailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="DR_Details_ID" msprop:Generator_ColumnVarNameInTable="columnDR_Details_ID" msprop:Generator_ColumnPropNameInRow="DR_Details_ID" msprop:Generator_ColumnPropNameInTable="DR_Details_IDColumn" msprop:Generator_UserColumnName="DR_Details_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LCP" msprop:Generator_ColumnVarNameInTable="columnLCP" msprop:Generator_ColumnPropNameInRow="LCP" msprop:Generator_ColumnPropNameInTable="LCPColumn" msprop:Generator_UserColumnName="LCP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockNo" msprop:Generator_ColumnVarNameInTable="columnstockNo" msprop:Generator_ColumnPropNameInRow="stockNo" msprop:Generator_ColumnPropNameInTable="stockNoColumn" msprop:Generator_UserColumnName="stockNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNo" msprop:Generator_ColumnVarNameInTable="columnAccountNo" msprop:Generator_ColumnPropNameInRow="AccountNo" msprop:Generator_ColumnPropNameInTable="AccountNoColumn" msprop:Generator_UserColumnName="AccountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qnty" msprop:Generator_ColumnVarNameInTable="columnqnty" msprop:Generator_ColumnPropNameInRow="qnty" msprop:Generator_ColumnPropNameInTable="qntyColumn" msprop:Generator_UserColumnName="qnty" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="down_payment" msprop:Generator_ColumnVarNameInTable="columndown_payment" msprop:Generator_ColumnPropNameInRow="down_payment" msprop:Generator_ColumnPropNameInTable="down_paymentColumn" msprop:Generator_UserColumnName="down_payment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="or_number" msprop:Generator_ColumnVarNameInTable="columnor_number" msprop:Generator_ColumnPropNameInRow="or_number" msprop:Generator_ColumnPropNameInTable="or_numberColumn" msprop:Generator_UserColumnName="or_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="paymentType" msprop:Generator_ColumnVarNameInTable="columnpaymentType" msprop:Generator_ColumnPropNameInRow="paymentType" msprop:Generator_ColumnPropNameInTable="paymentTypeColumn" msprop:Generator_UserColumnName="paymentType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pStatus" msprop:Generator_ColumnVarNameInTable="columnpStatus" msprop:Generator_ColumnPropNameInRow="pStatus" msprop:Generator_ColumnPropNameInTable="pStatusColumn" msprop:Generator_UserColumnName="pStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cash" msprop:Generator_ColumnVarNameInTable="columncash" msprop:Generator_ColumnPropNameInRow="cash" msprop:Generator_ColumnPropNameInTable="cashColumn" msprop:Generator_UserColumnName="cash" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orAmt" msprop:Generator_ColumnVarNameInTable="columnorAmt" msprop:Generator_ColumnPropNameInRow="orAmt" msprop:Generator_ColumnPropNameInTable="orAmtColumn" msprop:Generator_UserColumnName="orAmt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="model" msprop:Generator_ColumnVarNameInTable="columnmodel" msprop:Generator_ColumnPropNameInRow="model" msprop:Generator_ColumnPropNameInTable="modelColumn" msprop:Generator_UserColumnName="model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="serialNo" msprop:Generator_ColumnVarNameInTable="columnserialNo" msprop:Generator_ColumnPropNameInRow="serialNo" msprop:Generator_ColumnPropNameInTable="serialNoColumn" msprop:Generator_UserColumnName="serialNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="brand" msprop:Generator_ColumnVarNameInTable="columnbrand" msprop:Generator_ColumnPropNameInRow="brand" msprop:Generator_ColumnPropNameInTable="brandColumn" msprop:Generator_UserColumnName="brand" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PN" msprop:Generator_ColumnVarNameInTable="columnPN" msprop:Generator_ColumnPropNameInRow="PN" msprop:Generator_ColumnPropNameInTable="PNColumn" msprop:Generator_UserColumnName="PN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BalanceAF" msprop:Generator_ColumnVarNameInTable="columnBalanceAF" msprop:Generator_ColumnPropNameInRow="BalanceAF" msprop:Generator_ColumnPropNameInTable="BalanceAFColumn" msprop:Generator_UserColumnName="BalanceAF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="termsDR" msprop:Generator_ColumnVarNameInTable="columntermsDR" msprop:Generator_ColumnPropNameInRow="termsDR" msprop:Generator_ColumnPropNameInTable="termsDRColumn" msprop:Generator_UserColumnName="termsDR" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:deliveryReceipt" />
+      <xs:field xpath="mstns:AccountNo" />
+    </xs:unique>
+    <xs:unique name="DR_details_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DR_details" />
+      <xs:field xpath="mstns:DR_Details_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

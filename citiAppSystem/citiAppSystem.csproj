@@ -1,0 +1,1427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C898CCB9-96B2-4BF0-AB10-6950F62A42EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>citiAppSystem</RootNamespace>
+    <AssemblyName>citiAppSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\WIN-P95M5VT6CN4\newCitiApp\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>\\WIN-P95M5VT6CN4\newCitiApp\</UpdateUrl>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>270</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>551897DD71B0EBA585918644ED361CFF3211B95E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>citiAppSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\MetroFrameWorkDLLS\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\..\..\..\MetroFrameWorkDLLS\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\..\..\..\MetroFrameWorkDLLS\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addProducts.Designer.cs">
+      <DependentUpon>addProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_branch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_branch.Designer.cs">
+      <DependentUpon>add_branch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_purchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_purchaseOrder.Designer.cs">
+      <DependentUpon>add_purchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_UpdateSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_UpdateSupplier.Designer.cs">
+      <DependentUpon>add_UpdateSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_updateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_updateUser.Designer.cs">
+      <DependentUpon>add_updateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArrivalReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArrivalReport.Designer.cs">
+      <DependentUpon>ArrivalReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BranchSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BranchSelect.Designer.cs">
+      <DependentUpon>BranchSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="branchView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="branchView.Designer.cs">
+      <DependentUpon>branchView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cashier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cashier.Designer.cs">
+      <DependentUpon>cashier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cashierNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cashierNew.Designer.cs">
+      <DependentUpon>cashierNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="citiAppDatabaseDataSet.cs">
+      <DependentUpon>citiAppDatabaseDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="citiAppDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>citiAppDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="add_updateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_updateCustomer.Designer.cs">
+      <DependentUpon>add_updateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="collDateUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="collDateUpdate.Designer.cs">
+      <DependentUpon>collDateUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="collections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="collections.Designer.cs">
+      <DependentUpon>collections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyProfile.Designer.cs">
+      <DependentUpon>CompanyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="contractReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="contractReport.Designer.cs">
+      <DependentUpon>contractReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cryContract.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryContract.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryDailyCollections.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryDailyCollections.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryDailySales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryDailySales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryReceiptCLRInstallment.cs">
+      <DependentUpon>cryReceiptCLRInstallment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cryReceiptCRInstallment.cs">
+      <DependentUpon>cryReceiptCRInstallment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cryReceiptCLR.cs">
+      <DependentUpon>cryReceiptCLR.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cryLedgerCard.cs">
+      <DependentUpon>cryLedgerCard.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="cryCollection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryCollection.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryCustomerByEmployer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryCustomerByEmployer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryCustomerByID.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryCustomerByID.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryLedger.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryLedger.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryProducts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryProducts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryReceiptCR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryReceiptCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="cryStocklist.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryStocklist.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerCenter.Designer.cs">
+      <DependentUpon>CustomerCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="customerListReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customerListReport.Designer.cs">
+      <DependentUpon>customerListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerReports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerReports.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="customerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customerView.Designer.cs">
+      <DependentUpon>customerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dailyCollectionDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dailyCollectionDate.Designer.cs">
+      <DependentUpon>dailyCollectionDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dailyCollectionREPORTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dailyCollectionREPORTS.Designer.cs">
+      <DependentUpon>dailyCollectionREPORTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dailySalesDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dailySalesDate.Designer.cs">
+      <DependentUpon>dailySalesDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dailySalesREPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dailySalesREPORT.Designer.cs">
+      <DependentUpon>dailySalesREPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbConnection.cs" />
+    <Compile Include="DC_REPORTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DC_REPORTS.Designer.cs">
+      <DependentUpon>DC_REPORTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="deliveryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deliveryView.Designer.cs">
+      <DependentUpon>deliveryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectAddProduct.Designer.cs">
+      <DependentUpon>DirectAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectAdd_products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectAdd_products.Designer.cs">
+      <DependentUpon>DirectAdd_products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="drDetailsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>drDetailsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="free_products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="free_products.Designer.cs">
+      <DependentUpon>free_products.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductDetails.Designer.cs">
+      <DependentUpon>frmProductDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="LedgerCardReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerCardReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LedgerFormFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LedgerFormFull.Designer.cs">
+      <DependentUpon>LedgerFormFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LedgerReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LedgerReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Agg\IAccDelRepo.cs" />
+    <Compile Include="Modules\Datasets\BranchesDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BranchesDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\ChangesLogDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangesLogDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\CollectionDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CollectionDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\cTransDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cTransDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\CustomerDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\dailySalesDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dailySalesDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\DeliveryReceiptDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeliveryReceiptDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\freeProductsDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>freeProductsDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\IbranchesRepository.cs" />
+    <Compile Include="Modules\Datasets\IchangeLogRepository.cs" />
+    <Compile Include="Modules\Datasets\IcollectionRepository.cs" />
+    <Compile Include="Modules\Datasets\IcTransRepository.cs" />
+    <Compile Include="Modules\Datasets\IcustomerRepository.cs" />
+    <Compile Include="Modules\Datasets\IdailySalesRepository.cs" />
+    <Compile Include="Modules\Datasets\IdeliveryReceiptRepository.cs" />
+    <Compile Include="Modules\Datasets\IfreeProductsRepository.cs" />
+    <Compile Include="Modules\Datasets\IproductRepository.cs" />
+    <Compile Include="Modules\Datasets\IstockTransferRepository.cs" />
+    <Compile Include="Modules\Datasets\ledgerDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ledgerDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\ProductsDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductsDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Datasets\stockTransferDatasets.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>stockTransferDatasets.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Modals\DRMode.cs" />
+    <Compile Include="Modules\Modals\frmDeleteByModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Modals\frmDeleteByModal.Designer.cs">
+      <DependentUpon>frmDeleteByModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Modals\ModalAddOR_AMNT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Modals\ModalAddOR_AMNT.Designer.cs">
+      <DependentUpon>ModalAddOR_AMNT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Modals\ModalAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Modals\ModalAmount.Designer.cs">
+      <DependentUpon>ModalAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Modals\ModalPice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Modals\ModalPice.Designer.cs">
+      <DependentUpon>ModalPice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\AccDel.cs" />
+    <Compile Include="Modules\Models\Collection_Details.cs" />
+    <Compile Include="Modules\Models\CustomerModel.cs" />
+    <Compile Include="Modules\Models\DeliveryReceipt.cs" />
+    <Compile Include="Modules\Models\DR_detailsModel.cs" />
+    <Compile Include="Modules\Models\EF\AccDelTable.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\arrivalTable.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\branch.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\brand.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\ChangesLog.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\citiAppDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>citiAppDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\citiAppDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\citiAppDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>citiAppDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\collection.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\CollectionReportByAccountNo_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\collection_details.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\Collection_REPORTS_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\companyProfile.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\customerByEmployer_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\customerById_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\CustomerList_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\customerTable.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\c_TransTable.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\deliveryReceipt.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\DR_details.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\freeProduct.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\model.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\NewSelectCommandDR_REPORTBYACCOUNT_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\OF_Table.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\poDetail.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\POViewByPONumber_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\product.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\productList.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\purchaseOrder.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\ReceiptQuery_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\SELECTCOLLECTIONS_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\SelectProductByBrand_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\SelectProducts_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\SelectQueryByEmployer_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\SelectQueryLedgerReportByAccount_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\SelectQueryLedgerReportsAccountNo_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\selectQueryReceiptByOR_Result.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\Services\CitiAppDbServices.cs" />
+    <Compile Include="Modules\Models\EF\Services\Repository\CollectionDetailsTableRepo.cs" />
+    <Compile Include="Modules\Models\EF\Services\Repository\CTransactionTableRepo.cs" />
+    <Compile Include="Modules\Models\EF\Services\Repository\CustomerTableRepo.cs" />
+    <Compile Include="Modules\Models\EF\Services\Repository\DRTableRepo.cs" />
+    <Compile Include="Modules\Models\EF\st_requisitionTable.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\supplier.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\transferTable.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\EF\user.cs">
+      <DependentUpon>citiAppDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Models\Enums\AccountType.cs" />
+    <Compile Include="Modules\Models\Enums\AddingDrMode.cs" />
+    <Compile Include="Modules\Models\Enums\Cashier\PaymentType.cs" />
+    <Compile Include="Modules\Models\Enums\Cashier\TransactionType.cs" />
+    <Compile Include="Modules\Models\Enums\DRModes.cs" />
+    <Compile Include="Modules\Models\Enums\TransactionType.cs" />
+    <Compile Include="Modules\Models\ProductDR.cs" />
+    <Compile Include="Modules\Models\StockTransferModel.cs" />
+    <Compile Include="Modules\Reports\DailySales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Reports\DailySales.Designer.cs">
+      <DependentUpon>DailySales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reports\Ledger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Reports\Ledger.Designer.cs">
+      <DependentUpon>Ledger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Repository\AccDelRepo.cs" />
+    <Compile Include="Modules\Repository\branchesRepository.cs" />
+    <Compile Include="Modules\Repository\changeLogRepository.cs" />
+    <Compile Include="Modules\Repository\collectionRepository.cs" />
+    <Compile Include="Modules\Repository\cTransRepository.cs" />
+    <Compile Include="Modules\Repository\customerRepository.cs" />
+    <Compile Include="Modules\Repository\dailySalesRepository.cs" />
+    <Compile Include="Modules\Repository\deliveryReceiptRepository.cs" />
+    <Compile Include="Modules\Repository\freeProductsRepository.cs" />
+    <Compile Include="Modules\Repository\productRepository.cs" />
+    <Compile Include="Modules\Repository\stockTransferRepository.cs" />
+    <Compile Include="Modules\Views\Cashiers\frmAccountsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\Cashiers\frmAccountsList.Designer.cs">
+      <DependentUpon>frmAccountsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\Cashiers\frmCashierView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\Cashiers\frmCashierView.Designer.cs">
+      <DependentUpon>frmCashierView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\DelAccView\frmDelAccView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\DelAccView\frmDelAccView.Designer.cs">
+      <DependentUpon>frmDelAccView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\DelAccView\frmDeleteAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\DelAccView\frmDeleteAccount.Designer.cs">
+      <DependentUpon>frmDeleteAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\DR\frmDrViewModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\DR\frmDrViewModal.Designer.cs">
+      <DependentUpon>frmDrViewModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\frmProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\frmProductList.Designer.cs">
+      <DependentUpon>frmProductList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\Management\Account\frmManageUpdateAccountNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\Management\Account\frmManageUpdateAccountNo.Designer.cs">
+      <DependentUpon>frmManageUpdateAccountNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\Management\Account\frmManageUpdateStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\Management\Account\frmManageUpdateStock.Designer.cs">
+      <DependentUpon>frmManageUpdateStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Views\Management\Logs\frmChangesLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\Management\Logs\frmChangesLogs.Designer.cs">
+      <DependentUpon>frmChangesLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="newCitiAppDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>newCitiAppDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="newDailyCollections.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>newDailyCollections.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProductsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsList.Designer.cs">
+      <DependentUpon>ProductsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productsReport.Designer.cs">
+      <DependentUpon>productsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="productsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="productsView.Designer.cs">
+      <DependentUpon>productsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="purchaseOrderDetailsVIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchaseOrderDetailsVIEW.Designer.cs">
+      <DependentUpon>purchaseOrderDetailsVIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrderReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrderReport.Designer.cs">
+      <DependentUpon>PurchaseOrderReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="purchaseOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="purchaseOrderView.Designer.cs">
+      <DependentUpon>purchaseOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiptReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceiptReport.Designer.cs">
+      <DependentUpon>ReceiptReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.cs" />
+    <Compile Include="RPTledger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPTledger.Designer.cs">
+      <DependentUpon>RPTledger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SArrivalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SArrivalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="stockListREPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stockListREPORT.Designer.cs">
+      <DependentUpon>stockListREPORT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="stockTransfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stockTransfer.Designer.cs">
+      <DependentUpon>stockTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="supplierView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="supplierView.Designer.cs">
+      <DependentUpon>supplierView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransferList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferList.Designer.cs">
+      <DependentUpon>TransferList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransferProductReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferProductReports.Designer.cs">
+      <DependentUpon>TransferProductReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="transferReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>transferReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="updateAcctNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateAcctNo.Designer.cs">
+      <DependentUpon>updateAcctNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateDelivery.Designer.cs">
+      <DependentUpon>updateDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateDeliveryCollections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateDeliveryCollections.Designer.cs">
+      <DependentUpon>updateDeliveryCollections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updatePrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updatePrice.Designer.cs">
+      <DependentUpon>updatePrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateProductDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateProductDetails.Designer.cs">
+      <DependentUpon>updateProductDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="userView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="userView.Designer.cs">
+      <DependentUpon>userView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="add_branch.resx">
+      <DependentUpon>add_branch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_purchaseOrder.resx">
+      <DependentUpon>add_purchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_updateCustomer.resx">
+      <DependentUpon>add_updateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addProducts.resx">
+      <DependentUpon>addProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_UpdateSupplier.resx">
+      <DependentUpon>add_UpdateSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_updateUser.resx">
+      <DependentUpon>add_updateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArrivalReport.resx">
+      <DependentUpon>ArrivalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BranchSelect.resx">
+      <DependentUpon>BranchSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="branchView.resx">
+      <DependentUpon>branchView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cashier.resx">
+      <DependentUpon>cashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cashierNew.resx">
+      <DependentUpon>cashierNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="collDateUpdate.resx">
+      <DependentUpon>collDateUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="collections.resx">
+      <DependentUpon>collections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyProfile.resx">
+      <DependentUpon>CompanyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="contractReport.resx">
+      <DependentUpon>contractReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryContract.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryContract.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryDailyCollections.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryDailyCollections.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryDailySales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryDailySales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryReceiptCLRInstallment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryReceiptCLRInstallment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryReceiptCRInstallment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryReceiptCRInstallment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryReceiptCLR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryReceiptCLR.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryLedgerCard.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryLedgerCard.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryCollection.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryCollection.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryCustomerByEmployer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryCustomerByEmployer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryCustomerByID.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryCustomerByID.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryLedger.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryLedger.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryProducts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryProducts.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryReceiptCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryReceiptCR.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cryStocklist.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryStocklist.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerCenter.resx">
+      <DependentUpon>CustomerCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customerListReport.resx">
+      <DependentUpon>customerListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerReports.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerReports.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customerView.resx">
+      <DependentUpon>customerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dailyCollectionDate.resx">
+      <DependentUpon>dailyCollectionDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dailyCollectionREPORTS.resx">
+      <DependentUpon>dailyCollectionREPORTS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dailySalesDate.resx">
+      <DependentUpon>dailySalesDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dailySalesREPORT.resx">
+      <DependentUpon>dailySalesREPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DC_REPORTS.resx">
+      <DependentUpon>DC_REPORTS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deliveryView.resx">
+      <DependentUpon>deliveryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectAddProduct.resx">
+      <DependentUpon>DirectAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectAdd_products.resx">
+      <DependentUpon>DirectAdd_products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="drDetailsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>drDetailsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="free_products.resx">
+      <DependentUpon>free_products.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductDetails.resx">
+      <DependentUpon>frmProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LedgerCardReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerCardReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LedgerFormFull.resx">
+      <DependentUpon>LedgerFormFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LedgerReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>LedgerReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Modals\frmDeleteByModal.resx">
+      <DependentUpon>frmDeleteByModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Modals\ModalAddOR_AMNT.resx">
+      <DependentUpon>ModalAddOR_AMNT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Modals\ModalAmount.resx">
+      <DependentUpon>ModalAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Modals\ModalPice.resx">
+      <DependentUpon>ModalPice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Reports\DailySales.rdlc" />
+    <EmbeddedResource Include="Modules\Reports\DailySales.resx">
+      <DependentUpon>DailySales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Reports\Ledger.resx">
+      <DependentUpon>Ledger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Reports\LedgerReport.rdlc" />
+    <EmbeddedResource Include="Modules\Views\Cashiers\frmAccountsList.resx">
+      <DependentUpon>frmAccountsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\Cashiers\frmCashierView.resx">
+      <DependentUpon>frmCashierView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\DelAccView\frmDelAccView.resx">
+      <DependentUpon>frmDelAccView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\DelAccView\frmDeleteAccount.resx">
+      <DependentUpon>frmDeleteAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\DR\frmDrViewModal.resx">
+      <DependentUpon>frmDrViewModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\frmProductList.resx">
+      <DependentUpon>frmProductList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\Management\Account\frmManageUpdateAccountNo.resx">
+      <DependentUpon>frmManageUpdateAccountNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\Management\Account\frmManageUpdateStock.resx">
+      <DependentUpon>frmManageUpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Views\Management\Logs\frmChangesLogs.resx">
+      <DependentUpon>frmChangesLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newDailyCollections.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>newDailyCollections.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PO.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsList.resx">
+      <DependentUpon>ProductsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productsReport.resx">
+      <DependentUpon>productsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="productsView.resx">
+      <DependentUpon>productsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="purchaseOrderDetailsVIEW.resx">
+      <DependentUpon>purchaseOrderDetailsVIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseOrderReport.resx">
+      <DependentUpon>PurchaseOrderReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="purchaseOrderView.resx">
+      <DependentUpon>purchaseOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceiptReport.resx">
+      <DependentUpon>ReceiptReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPTledger.resx">
+      <DependentUpon>RPTledger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SArrivalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SArrivalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stockListREPORT.resx">
+      <DependentUpon>stockListREPORT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="stockTransfer.resx">
+      <DependentUpon>stockTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supplierView.resx">
+      <DependentUpon>supplierView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferList.resx">
+      <DependentUpon>TransferList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferProductReports.resx">
+      <DependentUpon>TransferProductReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transferReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>transferReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateAcctNo.resx">
+      <DependentUpon>updateAcctNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateDelivery.resx">
+      <DependentUpon>updateDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateDeliveryCollections.resx">
+      <DependentUpon>updateDeliveryCollections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updatePrice.resx">
+      <DependentUpon>updatePrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateProductDetails.resx">
+      <DependentUpon>updateProductDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="userView.resx">
+      <DependentUpon>userView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="citiAppDatabaseDataSet.xsc">
+      <DependentUpon>citiAppDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="citiAppDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>citiAppDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="citiAppDatabaseDataSet.xss">
+      <DependentUpon>citiAppDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="citiAppSystem_TemporaryKey.pfx" />
+    <None Include="Modules\Datasets\BranchesDatasets.xsc">
+      <DependentUpon>BranchesDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\BranchesDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BranchesDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\BranchesDatasets.xss">
+      <DependentUpon>BranchesDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\ChangesLogDatasets.xsc">
+      <DependentUpon>ChangesLogDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\ChangesLogDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ChangesLogDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\ChangesLogDatasets.xss">
+      <DependentUpon>ChangesLogDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\CollectionDatasets.xsc">
+      <DependentUpon>CollectionDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\CollectionDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CollectionDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\CollectionDatasets.xss">
+      <DependentUpon>CollectionDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\cTransDatasets.xsc">
+      <DependentUpon>cTransDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\cTransDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cTransDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\cTransDatasets.xss">
+      <DependentUpon>cTransDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\CustomerDatasets.xsc">
+      <DependentUpon>CustomerDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\CustomerDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomerDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\CustomerDatasets.xss">
+      <DependentUpon>CustomerDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\dailySalesDatasets.xsc">
+      <DependentUpon>dailySalesDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\dailySalesDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dailySalesDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\dailySalesDatasets.xss">
+      <DependentUpon>dailySalesDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\DeliveryReceiptDatasets.xsc">
+      <DependentUpon>DeliveryReceiptDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\DeliveryReceiptDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DeliveryReceiptDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\DeliveryReceiptDatasets.xss">
+      <DependentUpon>DeliveryReceiptDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\freeProductsDatasets.xsc">
+      <DependentUpon>freeProductsDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\freeProductsDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>freeProductsDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\freeProductsDatasets.xss">
+      <DependentUpon>freeProductsDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\ledgerDatasets.xsc">
+      <DependentUpon>ledgerDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\ledgerDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ledgerDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\ledgerDatasets.xss">
+      <DependentUpon>ledgerDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\ProductsDatasets.xsc">
+      <DependentUpon>ProductsDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\ProductsDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductsDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\ProductsDatasets.xss">
+      <DependentUpon>ProductsDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\stockTransferDatasets.xsc">
+      <DependentUpon>stockTransferDatasets.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Datasets\stockTransferDatasets.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>stockTransferDatasets.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Modules\Datasets\stockTransferDatasets.xss">
+      <DependentUpon>stockTransferDatasets.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Modules\Models\EF\citiAppDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>citiAppDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modules\Models\EF\citiAppDb.edmx.diagram">
+      <DependentUpon>citiAppDb.edmx</DependentUpon>
+    </None>
+    <None Include="newCitiAppDataset.xsc">
+      <DependentUpon>newCitiAppDataset.xsd</DependentUpon>
+    </None>
+    <None Include="newCitiAppDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>newCitiAppDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="newCitiAppDataset.xss">
+      <DependentUpon>newCitiAppDataset.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\citiAppSystem.Modules.Models.DeliveryReceipt.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modules\Models\EF\citiAppDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>citiAppDb.edmx</DependentUpon>
+      <LastGenOutput>citiAppDb.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modules\Models\EF\citiAppDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>citiAppDb.edmx</DependentUpon>
+      <LastGenOutput>citiAppDb.cs</LastGenOutput>
+    </Content>
+    <Content Include="resources\Customer-128.png" />
+    <Content Include="resources\Van-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\Views\Products\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

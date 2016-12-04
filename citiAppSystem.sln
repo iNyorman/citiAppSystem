@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "citiAppSystem", "citiAppSystem\citiAppSystem.csproj", "{C898CCB9-96B2-4BF0-AB10-6950F62A42EB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CitiAppliance", "CitiAppliance\CitiAppliance.vdproj", "{D1334992-CD41-42C2-ADEA-57152DCCE19E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C898CCB9-96B2-4BF0-AB10-6950F62A42EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C898CCB9-96B2-4BF0-AB10-6950F62A42EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C898CCB9-96B2-4BF0-AB10-6950F62A42EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C898CCB9-96B2-4BF0-AB10-6950F62A42EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1334992-CD41-42C2-ADEA-57152DCCE19E}.Debug|Any CPU.ActiveCfg = Debug
+		{D1334992-CD41-42C2-ADEA-57152DCCE19E}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

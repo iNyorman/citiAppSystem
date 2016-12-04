@@ -1,0 +1,1986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="citiAppDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccDelTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DelDateTime" Type="datetime" />
+          <Property Name="DelBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="arrivalTable">
+          <Key>
+            <PropertyRef Name="deliveryNo" />
+          </Key>
+          <Property Name="deliveryNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIA" Type="nvarchar(max)" />
+          <Property Name="WAYBILL" Type="nvarchar(max)" />
+          <Property Name="dateReceived" Type="date" />
+          <Property Name="datePrinted" Type="date" />
+          <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="sName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="branch">
+          <Key>
+            <PropertyRef Name="branchNo" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="branchNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="branchName" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="bAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="bContactNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="brandID" />
+          </Key>
+          <Property Name="brandID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="brandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="c_TransTable">
+          <Key>
+            <PropertyRef Name="trans_Id" />
+          </Key>
+          <Property Name="trans_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trans_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="OR_NUM" Type="nvarchar" MaxLength="50" />
+          <Property Name="trans_Date" Type="date" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GRS_AMT" Type="nvarchar" MaxLength="50" />
+          <Property Name="REBATE" Type="nvarchar" MaxLength="50" />
+          <Property Name="INT" Type="nvarchar" MaxLength="50" />
+          <Property Name="DISC" Type="nvarchar" MaxLength="50" />
+          <Property Name="NET_AMT" Type="nvarchar" MaxLength="50" />
+          <Property Name="pay_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="PAYMENT" Type="nvarchar" MaxLength="50" />
+          <Property Name="bank" Type="nvarchar" MaxLength="50" />
+          <Property Name="chequeNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="cTransStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="change" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="cash_AMT" Type="nvarchar" MaxLength="50" />
+          <Property Name="cheque_AMT" Type="nvarchar" MaxLength="50" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="system_Date" Type="date" />
+        </EntityType>
+        <EntityType Name="ChangesLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="changeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Details" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateChange" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="collection">
+          <Key>
+            <PropertyRef Name="Collection_ID" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Collection_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total_LCP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Balance" Type="nvarchar" MaxLength="50" />
+          <Property Name="UDI" Type="nvarchar" MaxLength="50" />
+          <Property Name="Total_Rebate" Type="nvarchar" MaxLength="50" />
+          <Property Name="PN" Type="nvarchar" MaxLength="50" />
+          <Property Name="GRS_Monthly" Type="nvarchar" MaxLength="50" />
+          <Property Name="Net_monthly" Type="nvarchar" MaxLength="50" />
+          <Property Name="Transaction_Date" Type="date" />
+          <Property Name="Notarial_Fee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Delivery_Fee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Other_Pay" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="terms" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="monthlyRebate" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="collection_details">
+          <Key>
+            <PropertyRef Name="Collection_Details_ID" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Collection_Details_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="NO" Type="nvarchar" MaxLength="50" />
+          <Property Name="OR_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRIN_Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Total_Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Penalty" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rebate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Discount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Acct_Balance" Type="nvarchar" MaxLength="50" />
+          <Property Name="transaction_date" Type="date" />
+          <Property Name="Collection_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="expected_date" Type="date" />
+          <Property Name="expected_balance" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="coll_cash_amt" Type="nvarchar" MaxLength="50" />
+          <Property Name="col_cheque_amt" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="companyProfile">
+          <Key>
+            <PropertyRef Name="citiProfileNo" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="citiProfileNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cedula_name" Type="nvarchar(max)" />
+          <Property Name="cedula_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="cedula_dateissued" Type="date" />
+          <Property Name="place_issued" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="customerTable">
+          <Key>
+            <PropertyRef Name="ID_Number" />
+          </Key>
+          <Property Name="ID_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="f_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="employer" Type="nvarchar" MaxLength="50" />
+          <Property Name="contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="co_Maker" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="co_MakerAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="civil_status" Type="nvarchar" MaxLength="50" />
+          <Property Name="employerAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="fullName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="deliveryReceipt">
+          <Key>
+            <PropertyRef Name="AccountNo" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Account_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Delivery_Date" Type="date" />
+          <Property Name="SI_DR_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salesman" Type="nvarchar" MaxLength="50" />
+          <Property Name="CI_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Collection_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DR_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="DRtype" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DR_details">
+          <Key>
+            <PropertyRef Name="DR_Details_ID" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DR_Details_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LCP" Type="nvarchar" MaxLength="50" />
+          <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="qnty" Type="nvarchar" MaxLength="50" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="100" />
+          <Property Name="down_payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="or_number" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="pStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="cash" Type="nvarchar" MaxLength="50" />
+          <Property Name="orAmt" Type="nvarchar" MaxLength="50" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" />
+          <Property Name="serialNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="PN" Type="nvarchar" MaxLength="50" />
+          <Property Name="BalanceAF" Type="nvarchar" MaxLength="50" />
+          <Property Name="termsDR" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="freeProduct">
+          <Key>
+            <PropertyRef Name="FstockNo" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FstockNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="attachedStockNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="model">
+          <Key>
+            <PropertyRef Name="modelID" />
+          </Key>
+          <Property Name="modelID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modelName" Type="nvarchar" MaxLength="50" />
+          <Property Name="brandID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OF_Table">
+          <Key>
+            <PropertyRef Name="OFID" />
+          </Key>
+          <Property Name="OFID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FeeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+          <Property Name="trans_Id" Type="int" />
+          <Property Name="payments" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="cash_amt" Type="nvarchar" MaxLength="50" />
+          <Property Name="cheque_amt" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="poDetails">
+          <Key>
+            <PropertyRef Name="poDetails_ID" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="poDetails_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" />
+          <Property Name="orderedQTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="freeQTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="cost" Type="nvarchar" MaxLength="50" />
+          <Property Name="discount" Type="nvarchar" MaxLength="50" />
+          <Property Name="totalCost" Type="nvarchar" MaxLength="50" />
+          <Property Name="poID" Type="nvarchar" MaxLength="50" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="totalQty" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="remainingQTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="holderQTY" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="productList">
+          <Key>
+            <PropertyRef Name="product_ID" />
+          </Key>
+          <Property Name="product_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="brandID" Type="nvarchar" MaxLength="50" />
+          <Property Name="modelID" Type="nvarchar" MaxLength="50" />
+          <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="stockNo" />
+          </Key>
+          <Property Name="stockNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="model" Type="nvarchar" MaxLength="50" />
+          <Property Name="serialNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="poDetails_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="prodStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="deliveryNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="loc_From" Type="nvarchar" MaxLength="50" />
+          <Property Name="loc_To" Type="nvarchar" MaxLength="50" />
+          <Property Name="date_Received" Type="date" />
+          <Property Name="st_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="purchaseOrder">
+          <Key>
+            <PropertyRef Name="poID" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="poID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="poDate" Type="date" />
+          <Property Name="deliveryDate" Type="date" />
+          <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchNo" Type="nvarchar(max)" />
+          <Property Name="approvedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="totalAmount" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="st_requisitionTable">
+          <Key>
+            <PropertyRef Name="st_ID" />
+          </Key>
+          <Property Name="st_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_Transaction" Type="datetime" />
+          <Property Name="transfer_location" Type="nvarchar" MaxLength="50" />
+          <Property Name="gatePassNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="receivedBy" Type="nvarchar(max)" />
+          <Property Name="releasedBy" Type="nvarchar(max)" />
+          <Property Name="from_location" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="sup_IDno" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sup_IDno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="contact" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="transferTable">
+          <Key>
+            <PropertyRef Name="transfer_ID" />
+          </Key>
+          <Property Name="transfer_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="stockNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="trans_Date" Type="date" />
+          <Property Name="transferLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="qnty" Type="nvarchar" MaxLength="50" />
+          <Property Name="st_ID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="indexNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="F_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="L_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="branchNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="Collection_REPORTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="drAcountNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="CollectionReportByAccountNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="accountNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="customerByEmployer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employer" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="customerById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="CustomerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="NewSelectCommandDR_REPORTBYACCOUNT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="accountNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="POViewByPONumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="poNumber" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="ReceiptQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="oRNO" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SELECTCOLLECTIONS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectProductByBrand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="brand" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="brand" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectQueryByEmployer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employer" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectQueryLedgerReportByAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="drAcountNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SelectQueryLedgerReportsAccountNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="drAcountNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="selectQueryReceiptByOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="oRNO" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateDescriptionByStockNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="stockNo" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="citiAppDatabaseModelStoreContainer">
+          <EntitySet Name="AccDelTable" EntityType="Self.AccDelTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="arrivalTable" EntityType="Self.arrivalTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="branch" EntityType="Self.branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="brand" EntityType="Self.brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="c_TransTable" EntityType="Self.c_TransTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangesLog" EntityType="Self.ChangesLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="collection" EntityType="Self.collection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="collection_details" EntityType="Self.collection_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="companyProfile" EntityType="Self.companyProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customerTable" EntityType="Self.customerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="deliveryReceipt" EntityType="Self.deliveryReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DR_details" EntityType="Self.DR_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="freeProduct" EntityType="Self.freeProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="model" EntityType="Self.model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OF_Table" EntityType="Self.OF_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="poDetails" EntityType="Self.poDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productList" EntityType="Self.productList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchaseOrder" EntityType="Self.purchaseOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="st_requisitionTable" EntityType="Self.st_requisitionTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="supplier" EntityType="Self.supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transferTable" EntityType="Self.transferTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="citiAppDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccDelTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DelDateTime" Type="DateTime" Precision="3" />
+          <Property Name="DelBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="arrivalTable">
+          <Key>
+            <PropertyRef Name="deliveryNo" />
+          </Key>
+          <Property Name="deliveryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VIA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WAYBILL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateReceived" Type="DateTime" Precision="0" />
+          <Property Name="datePrinted" Type="DateTime" Precision="0" />
+          <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="branch">
+          <Key>
+            <PropertyRef Name="branchNo" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="branchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="brandID" />
+          </Key>
+          <Property Name="brandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="c_TransTable">
+          <Key>
+            <PropertyRef Name="trans_Id" />
+          </Key>
+          <Property Name="trans_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trans_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OR_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trans_Date" Type="DateTime" Precision="0" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GRS_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="REBATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="INT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DISC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NET_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pay_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PAYMENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="chequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cTransStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="change" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cash_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cheque_AMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="system_Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ChangesLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="changeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateChange" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="collection">
+          <Key>
+            <PropertyRef Name="Collection_ID" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Collection_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Total_LCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UDI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Rebate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GRS_Monthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Net_monthly" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Transaction_Date" Type="DateTime" Precision="0" />
+          <Property Name="Notarial_Fee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Delivery_Fee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Other_Pay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="terms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="monthlyRebate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="collection_details">
+          <Key>
+            <PropertyRef Name="Collection_Details_ID" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Collection_Details_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OR_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRIN_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Penalty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rebate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Acct_Balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="transaction_date" Type="DateTime" Precision="0" />
+          <Property Name="Collection_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="expected_date" Type="DateTime" Precision="0" />
+          <Property Name="expected_balance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="coll_cash_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="col_cheque_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="companyProfile">
+          <Key>
+            <PropertyRef Name="citiProfileNo" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="citiProfileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cedula_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cedula_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cedula_dateissued" Type="DateTime" Precision="0" />
+          <Property Name="place_issued" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="customerTable">
+          <Key>
+            <PropertyRef Name="ID_Number" />
+          </Key>
+          <Property Name="ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="co_Maker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="co_MakerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="civil_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="deliveryReceipt">
+          <Key>
+            <PropertyRef Name="AccountNo" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Account_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Delivery_Date" Type="DateTime" Precision="0" />
+          <Property Name="SI_DR_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salesman" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CI_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Collection_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DR_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DRtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DR_details">
+          <Key>
+            <PropertyRef Name="DR_Details_ID" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DR_Details_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LCP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qnty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="down_payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="or_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="orAmt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BalanceAF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="termsDR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="freeProduct">
+          <Key>
+            <PropertyRef Name="FstockNo" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FstockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="attachedStockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="model">
+          <Key>
+            <PropertyRef Name="modelID" />
+          </Key>
+          <Property Name="modelID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="modelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="brandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OF_Table">
+          <Key>
+            <PropertyRef Name="OFID" />
+          </Key>
+          <Property Name="OFID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FeeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ORNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trans_Id" Type="Int32" />
+          <Property Name="payments" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cash_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cheque_amt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="poDetail">
+          <Key>
+            <PropertyRef Name="poDetails_ID" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="poDetails_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="orderedQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="freeQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="discount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="totalCost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="poID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="totalQty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remainingQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="holderQTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="productList">
+          <Key>
+            <PropertyRef Name="product_ID" />
+          </Key>
+          <Property Name="product_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="brandID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modelID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="stockNo" />
+          </Key>
+          <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serialNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="poDetails_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prodStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="deliveryNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loc_From" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loc_To" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="date_Received" Type="DateTime" Precision="0" />
+          <Property Name="st_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="purchaseOrder">
+          <Key>
+            <PropertyRef Name="poID" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="poID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="poDate" Type="DateTime" Precision="0" />
+          <Property Name="deliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="approvedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="totalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="st_requisitionTable">
+          <Key>
+            <PropertyRef Name="st_ID" />
+          </Key>
+          <Property Name="st_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_Transaction" Type="DateTime" Precision="3" />
+          <Property Name="transfer_location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gatePassNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="receivedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="releasedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="from_location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="supplier">
+          <Key>
+            <PropertyRef Name="sup_IDno" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sup_IDno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="transferTable">
+          <Key>
+            <PropertyRef Name="transfer_ID" />
+          </Key>
+          <Property Name="transfer_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stockNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trans_Date" Type="DateTime" Precision="0" />
+          <Property Name="transferLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qnty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="st_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="indexNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="F_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="L_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="branchNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="citiAppDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccDelTables" EntityType="Self.AccDelTable" />
+          <EntitySet Name="arrivalTables" EntityType="Self.arrivalTable" />
+          <EntitySet Name="branches" EntityType="Self.branch" />
+          <EntitySet Name="brands" EntityType="Self.brand" />
+          <EntitySet Name="c_TransTable" EntityType="Self.c_TransTable" />
+          <EntitySet Name="ChangesLogs" EntityType="Self.ChangesLog" />
+          <EntitySet Name="collections" EntityType="Self.collection" />
+          <EntitySet Name="collection_details" EntityType="Self.collection_details" />
+          <EntitySet Name="companyProfiles" EntityType="Self.companyProfile" />
+          <EntitySet Name="customerTables" EntityType="Self.customerTable" />
+          <EntitySet Name="deliveryReceipts" EntityType="Self.deliveryReceipt" />
+          <EntitySet Name="DR_details" EntityType="Self.DR_details" />
+          <EntitySet Name="freeProducts" EntityType="Self.freeProduct" />
+          <EntitySet Name="models" EntityType="Self.model" />
+          <EntitySet Name="OF_Table" EntityType="Self.OF_Table" />
+          <EntitySet Name="poDetails" EntityType="Self.poDetail" />
+          <EntitySet Name="productLists" EntityType="Self.productList" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="purchaseOrders" EntityType="Self.purchaseOrder" />
+          <EntitySet Name="st_requisitionTable" EntityType="Self.st_requisitionTable" />
+          <EntitySet Name="suppliers" EntityType="Self.supplier" />
+          <EntitySet Name="transferTables" EntityType="Self.transferTable" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <FunctionImport Name="Collection_REPORTS" ReturnType="Collection(citiAppDatabaseModel.Collection_REPORTS_Result)">
+            <Parameter Name="drAcountNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CollectionReportByAccountNo" ReturnType="Collection(citiAppDatabaseModel.CollectionReportByAccountNo_Result)">
+            <Parameter Name="accountNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="customerByEmployer" ReturnType="Collection(citiAppDatabaseModel.customerByEmployer_Result)">
+            <Parameter Name="employer" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="customerById" ReturnType="Collection(citiAppDatabaseModel.customerById_Result)">
+            <Parameter Name="idNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CustomerList" ReturnType="Collection(citiAppDatabaseModel.CustomerList_Result)" />
+          <FunctionImport Name="NewSelectCommandDR_REPORTBYACCOUNT" ReturnType="Collection(citiAppDatabaseModel.NewSelectCommandDR_REPORTBYACCOUNT_Result)">
+            <Parameter Name="accountNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="POViewByPONumber" ReturnType="Collection(citiAppDatabaseModel.POViewByPONumber_Result)">
+            <Parameter Name="poNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ReceiptQuery" ReturnType="Collection(citiAppDatabaseModel.ReceiptQuery_Result)">
+            <Parameter Name="oRNO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SELECTCOLLECTIONS" ReturnType="Collection(citiAppDatabaseModel.SELECTCOLLECTIONS_Result)" />
+          <FunctionImport Name="SelectProductByBrand" ReturnType="Collection(citiAppDatabaseModel.SelectProductByBrand_Result)">
+            <Parameter Name="brand" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectProducts" ReturnType="Collection(citiAppDatabaseModel.SelectProducts_Result)">
+            <Parameter Name="brand" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectQueryByEmployer" ReturnType="Collection(citiAppDatabaseModel.SelectQueryByEmployer_Result)">
+            <Parameter Name="employer" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectQueryLedgerReportByAccount" ReturnType="Collection(citiAppDatabaseModel.SelectQueryLedgerReportByAccount_Result)">
+            <Parameter Name="drAcountNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectQueryLedgerReportsAccountNo" ReturnType="Collection(citiAppDatabaseModel.SelectQueryLedgerReportsAccountNo_Result)">
+            <Parameter Name="drAcountNo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="selectQueryReceiptByOR" ReturnType="Collection(citiAppDatabaseModel.selectQueryReceiptByOR_Result)">
+            <Parameter Name="oRNO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDescriptionByStockNo">
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="stockNo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Collection_REPORTS_Result">
+          <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+          <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transDate" Nullable="true" />
+          <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expected_date" Nullable="true" />
+          <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="CollectionReportByAccountNo_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Delivery_Date" Nullable="true" />
+          <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ID_Number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Collection_ID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Expr2" Nullable="false" />
+          <Property Type="String" Name="Expr3" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+          <Property Type="String" Name="Notarial_Fee" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Delivery_Fee" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Other_Pay" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr4" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="paymentType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="remarks" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="monthlyRebate" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Expr5" Nullable="false" />
+          <Property Type="String" Name="Collection_Details_ID" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OR_Number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Expr6" Nullable="true" />
+          <Property Type="String" Name="Expr7" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expected_date" Nullable="true" />
+          <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr8" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr9" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Expr10" Nullable="false" />
+          <Property Type="String" Name="DR_Details_ID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr11" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr12" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="qnty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr13" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr14" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Expr15" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="pStatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="customerByEmployer_Result">
+          <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="customerById_Result">
+          <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="CustomerList_Result">
+          <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="NewSelectCommandDR_REPORTBYACCOUNT_Result">
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="orAmt" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="POViewByPONumber_Result">
+          <Property Type="DateTime" Name="poDate" Nullable="true" />
+          <Property Type="DateTime" Name="deliveryDate" Nullable="true" />
+          <Property Type="String" Name="approvedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="orderedQTY" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="freeQTY" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cost" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="discount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="totalCost" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="sName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="branchNo" Nullable="true" />
+          <Property Type="String" Name="poID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="totalAmount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="brandName" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ReceiptQuery_Result">
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Delivery_Date" Nullable="true" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="qnty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SELECTCOLLECTIONS_Result">
+          <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+          <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transDate" Nullable="true" />
+          <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expected_date" Nullable="true" />
+          <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SelectProductByBrand_Result">
+          <Property Type="String" Name="stockNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SelectProducts_Result">
+          <Property Type="String" Name="stockNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SelectQueryByEmployer_Result">
+          <Property Type="String" Name="ID_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contact" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SelectQueryLedgerReportByAccount_Result">
+          <Property Type="String" Name="AccountNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+          <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transDate" Nullable="true" />
+          <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expected_date" Nullable="true" />
+          <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SelectQueryLedgerReportsAccountNo_Result">
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="employer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_Maker" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="co_MakerAddress" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Balance" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UDI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="terms" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GRS_Monthly" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Net_monthly" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Transaction_Date" Nullable="true" />
+          <Property Type="String" Name="SI_DR_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Salesman" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CI_By" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Rebate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="down_payment" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="transDate" Nullable="true" />
+          <Property Type="String" Name="NO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="orNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PRIN_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Total_Amount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Penalty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Discount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Acct_Balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="expected_date" Nullable="true" />
+          <Property Type="String" Name="expected_balance" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="selectQueryReceiptByOR_Result">
+          <Property Type="String" Name="last_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="mid_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="f_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Account_Type" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Delivery_Date" Nullable="true" />
+          <Property Type="String" Name="brand" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="serialNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="stockNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="AccountNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="qnty" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Payment" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LCP" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="or_number" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="citiAppDatabaseModelStoreContainer" CdmEntityContainer="citiAppDatabaseEntities">
+          <EntitySetMapping Name="AccDelTables">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.AccDelTable">
+              <MappingFragment StoreEntitySet="AccDelTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DelDateTime" ColumnName="DelDateTime" />
+                <ScalarProperty Name="DelBy" ColumnName="DelBy" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="arrivalTables">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.arrivalTable">
+              <MappingFragment StoreEntitySet="arrivalTable">
+                <ScalarProperty Name="deliveryNo" ColumnName="deliveryNo" />
+                <ScalarProperty Name="VIA" ColumnName="VIA" />
+                <ScalarProperty Name="WAYBILL" ColumnName="WAYBILL" />
+                <ScalarProperty Name="dateReceived" ColumnName="dateReceived" />
+                <ScalarProperty Name="datePrinted" ColumnName="datePrinted" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="branches">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.branch">
+              <MappingFragment StoreEntitySet="branch">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+                <ScalarProperty Name="branchName" ColumnName="branchName" />
+                <ScalarProperty Name="branchCode" ColumnName="branchCode" />
+                <ScalarProperty Name="bAddress" ColumnName="bAddress" />
+                <ScalarProperty Name="bContactNo" ColumnName="bContactNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="brands">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.brand">
+              <MappingFragment StoreEntitySet="brand">
+                <ScalarProperty Name="brandID" ColumnName="brandID" />
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+                <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="c_TransTable">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.c_TransTable">
+              <MappingFragment StoreEntitySet="c_TransTable">
+                <ScalarProperty Name="trans_Id" ColumnName="trans_Id" />
+                <ScalarProperty Name="trans_Type" ColumnName="trans_Type" />
+                <ScalarProperty Name="OR_NUM" ColumnName="OR_NUM" />
+                <ScalarProperty Name="trans_Date" ColumnName="trans_Date" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="GRS_AMT" ColumnName="GRS_AMT" />
+                <ScalarProperty Name="REBATE" ColumnName="REBATE" />
+                <ScalarProperty Name="INT" ColumnName="INT" />
+                <ScalarProperty Name="DISC" ColumnName="DISC" />
+                <ScalarProperty Name="NET_AMT" ColumnName="NET_AMT" />
+                <ScalarProperty Name="pay_Type" ColumnName="pay_Type" />
+                <ScalarProperty Name="PAYMENT" ColumnName="PAYMENT" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+                <ScalarProperty Name="chequeNo" ColumnName="chequeNo" />
+                <ScalarProperty Name="cTransStatus" ColumnName="cTransStatus" />
+                <ScalarProperty Name="change" ColumnName="change" />
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+                <ScalarProperty Name="cash_AMT" ColumnName="cash_AMT" />
+                <ScalarProperty Name="cheque_AMT" ColumnName="cheque_AMT" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="system_Date" ColumnName="system_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangesLogs">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.ChangesLog">
+              <MappingFragment StoreEntitySet="ChangesLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="changeType" ColumnName="changeType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="dateChange" ColumnName="dateChange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collections">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.collection">
+              <MappingFragment StoreEntitySet="collection">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UDI" ColumnName="UDI" />
+                <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+                <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="Notarial_Fee" ColumnName="Notarial_Fee" />
+                <ScalarProperty Name="Delivery_Fee" ColumnName="Delivery_Fee" />
+                <ScalarProperty Name="Other_Pay" ColumnName="Other_Pay" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="monthlyRebate" ColumnName="monthlyRebate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="collection_details">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.collection_details">
+              <MappingFragment StoreEntitySet="collection_details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Collection_Details_ID" ColumnName="Collection_Details_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="OR_Number" ColumnName="OR_Number" />
+                <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+                <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+                <ScalarProperty Name="transaction_date" ColumnName="transaction_date" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+                <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+                <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+                <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="coll_cash_amt" ColumnName="coll_cash_amt" />
+                <ScalarProperty Name="col_cheque_amt" ColumnName="col_cheque_amt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="companyProfiles">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.companyProfile">
+              <MappingFragment StoreEntitySet="companyProfile">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="citiProfileNo" ColumnName="citiProfileNo" />
+                <ScalarProperty Name="cedula_name" ColumnName="cedula_name" />
+                <ScalarProperty Name="cedula_no" ColumnName="cedula_no" />
+                <ScalarProperty Name="cedula_dateissued" ColumnName="cedula_dateissued" />
+                <ScalarProperty Name="place_issued" ColumnName="place_issued" />
+                <ScalarProperty Name="branchID" ColumnName="branchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customerTables">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.customerTable">
+              <MappingFragment StoreEntitySet="customerTable">
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="civil_status" ColumnName="civil_status" />
+                <ScalarProperty Name="employerAddress" ColumnName="employerAddress" />
+                <ScalarProperty Name="fullName" ColumnName="fullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="deliveryReceipts">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.deliveryReceipt">
+              <MappingFragment StoreEntitySet="deliveryReceipt">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+                <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+                <ScalarProperty Name="DR_no" ColumnName="DR_no" />
+                <ScalarProperty Name="DRtype" ColumnName="DRtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DR_details">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.DR_details">
+              <MappingFragment StoreEntitySet="DR_details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DR_Details_ID" ColumnName="DR_Details_ID" />
+                <ScalarProperty Name="LCP" ColumnName="LCP" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="qnty" ColumnName="qnty" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+                <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="pStatus" ColumnName="pStatus" />
+                <ScalarProperty Name="cash" ColumnName="cash" />
+                <ScalarProperty Name="orAmt" ColumnName="orAmt" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="BalanceAF" ColumnName="BalanceAF" />
+                <ScalarProperty Name="termsDR" ColumnName="termsDR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="freeProducts">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.freeProduct">
+              <MappingFragment StoreEntitySet="freeProduct">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="FstockNo" ColumnName="FstockNo" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="attachedStockNo" ColumnName="attachedStockNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="models">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.model">
+              <MappingFragment StoreEntitySet="model">
+                <ScalarProperty Name="modelID" ColumnName="modelID" />
+                <ScalarProperty Name="modelName" ColumnName="modelName" />
+                <ScalarProperty Name="brandID" ColumnName="brandID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OF_Table">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.OF_Table">
+              <MappingFragment StoreEntitySet="OF_Table">
+                <ScalarProperty Name="OFID" ColumnName="OFID" />
+                <ScalarProperty Name="FeeType" ColumnName="FeeType" />
+                <ScalarProperty Name="ORNumber" ColumnName="ORNumber" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="trans_Id" ColumnName="trans_Id" />
+                <ScalarProperty Name="payments" ColumnName="payments" />
+                <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+                <ScalarProperty Name="cash_amt" ColumnName="cash_amt" />
+                <ScalarProperty Name="cheque_amt" ColumnName="cheque_amt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="poDetails">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.poDetail">
+              <MappingFragment StoreEntitySet="poDetails">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="poDetails_ID" ColumnName="poDetails_ID" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="orderedQTY" ColumnName="orderedQTY" />
+                <ScalarProperty Name="freeQTY" ColumnName="freeQTY" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="totalCost" ColumnName="totalCost" />
+                <ScalarProperty Name="poID" ColumnName="poID" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="totalQty" ColumnName="totalQty" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="remainingQTY" ColumnName="remainingQTY" />
+                <ScalarProperty Name="holderQTY" ColumnName="holderQTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productLists">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.productList">
+              <MappingFragment StoreEntitySet="productList">
+                <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+                <ScalarProperty Name="brandID" ColumnName="brandID" />
+                <ScalarProperty Name="modelID" ColumnName="modelID" />
+                <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.product">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="poDetails_ID" ColumnName="poDetails_ID" />
+                <ScalarProperty Name="prodStatus" ColumnName="prodStatus" />
+                <ScalarProperty Name="deliveryNo" ColumnName="deliveryNo" />
+                <ScalarProperty Name="loc_From" ColumnName="loc_From" />
+                <ScalarProperty Name="loc_To" ColumnName="loc_To" />
+                <ScalarProperty Name="date_Received" ColumnName="date_Received" />
+                <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchaseOrders">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.purchaseOrder">
+              <MappingFragment StoreEntitySet="purchaseOrder">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="poID" ColumnName="poID" />
+                <ScalarProperty Name="poDate" ColumnName="poDate" />
+                <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+                <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+                <ScalarProperty Name="approvedBy" ColumnName="approvedBy" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="st_requisitionTable">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.st_requisitionTable">
+              <MappingFragment StoreEntitySet="st_requisitionTable">
+                <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+                <ScalarProperty Name="date_Transaction" ColumnName="date_Transaction" />
+                <ScalarProperty Name="transfer_location" ColumnName="transfer_location" />
+                <ScalarProperty Name="gatePassNo" ColumnName="gatePassNo" />
+                <ScalarProperty Name="receivedBy" ColumnName="receivedBy" />
+                <ScalarProperty Name="releasedBy" ColumnName="releasedBy" />
+                <ScalarProperty Name="from_location" ColumnName="from_location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suppliers">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.supplier">
+              <MappingFragment StoreEntitySet="supplier">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="sup_IDno" ColumnName="sup_IDno" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transferTables">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.transferTable">
+              <MappingFragment StoreEntitySet="transferTable">
+                <ScalarProperty Name="transfer_ID" ColumnName="transfer_ID" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="trans_Date" ColumnName="trans_Date" />
+                <ScalarProperty Name="transferLocation" ColumnName="transferLocation" />
+                <ScalarProperty Name="qnty" ColumnName="qnty" />
+                <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="citiAppDatabaseModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="indexNo" ColumnName="indexNo" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="F_name" ColumnName="F_name" />
+                <ScalarProperty Name="L_name" ColumnName="L_name" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Collection_REPORTS" FunctionName="citiAppDatabaseModel.Store.Collection_REPORTS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.Collection_REPORTS_Result">
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UDI" ColumnName="UDI" />
+                <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+                <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+                <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="transDate" ColumnName="transDate" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="orNo" ColumnName="orNo" />
+                <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+                <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+                <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CollectionReportByAccountNo" FunctionName="citiAppDatabaseModel.Store.CollectionReportByAccountNo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.CollectionReportByAccountNo_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+                <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UDI" ColumnName="UDI" />
+                <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+                <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="Notarial_Fee" ColumnName="Notarial_Fee" />
+                <ScalarProperty Name="Delivery_Fee" ColumnName="Delivery_Fee" />
+                <ScalarProperty Name="Other_Pay" ColumnName="Other_Pay" />
+                <ScalarProperty Name="Expr4" ColumnName="Expr4" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="monthlyRebate" ColumnName="monthlyRebate" />
+                <ScalarProperty Name="Expr5" ColumnName="Expr5" />
+                <ScalarProperty Name="Collection_Details_ID" ColumnName="Collection_Details_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="OR_Number" ColumnName="OR_Number" />
+                <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+                <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+                <ScalarProperty Name="Expr6" ColumnName="Expr6" />
+                <ScalarProperty Name="Expr7" ColumnName="Expr7" />
+                <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+                <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+                <ScalarProperty Name="Expr8" ColumnName="Expr8" />
+                <ScalarProperty Name="Expr9" ColumnName="Expr9" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="Expr10" ColumnName="Expr10" />
+                <ScalarProperty Name="DR_Details_ID" ColumnName="DR_Details_ID" />
+                <ScalarProperty Name="LCP" ColumnName="LCP" />
+                <ScalarProperty Name="Expr11" ColumnName="Expr11" />
+                <ScalarProperty Name="Expr12" ColumnName="Expr12" />
+                <ScalarProperty Name="qnty" ColumnName="qnty" />
+                <ScalarProperty Name="Expr13" ColumnName="Expr13" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="Expr14" ColumnName="Expr14" />
+                <ScalarProperty Name="Expr15" ColumnName="Expr15" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="pStatus" ColumnName="pStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="customerByEmployer" FunctionName="citiAppDatabaseModel.Store.customerByEmployer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.customerByEmployer_Result">
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="customerById" FunctionName="citiAppDatabaseModel.Store.customerById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.customerById_Result">
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CustomerList" FunctionName="citiAppDatabaseModel.Store.CustomerList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.CustomerList_Result">
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NewSelectCommandDR_REPORTBYACCOUNT" FunctionName="citiAppDatabaseModel.Store.NewSelectCommandDR_REPORTBYACCOUNT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.NewSelectCommandDR_REPORTBYACCOUNT_Result">
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="orAmt" ColumnName="orAmt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="POViewByPONumber" FunctionName="citiAppDatabaseModel.Store.POViewByPONumber">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.POViewByPONumber_Result">
+                <ScalarProperty Name="poDate" ColumnName="poDate" />
+                <ScalarProperty Name="deliveryDate" ColumnName="deliveryDate" />
+                <ScalarProperty Name="approvedBy" ColumnName="approvedBy" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="orderedQTY" ColumnName="orderedQTY" />
+                <ScalarProperty Name="freeQTY" ColumnName="freeQTY" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="totalCost" ColumnName="totalCost" />
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="branchNo" ColumnName="branchNo" />
+                <ScalarProperty Name="poID" ColumnName="poID" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReceiptQuery" FunctionName="citiAppDatabaseModel.Store.ReceiptQuery">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.ReceiptQuery_Result">
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="qnty" ColumnName="qnty" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="LCP" ColumnName="LCP" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SELECTCOLLECTIONS" FunctionName="citiAppDatabaseModel.Store.SELECTCOLLECTIONS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.SELECTCOLLECTIONS_Result">
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UDI" ColumnName="UDI" />
+                <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+                <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+                <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="transDate" ColumnName="transDate" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="orNo" ColumnName="orNo" />
+                <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+                <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+                <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectProductByBrand" FunctionName="citiAppDatabaseModel.Store.SelectProductByBrand">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectProductByBrand_Result">
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectProducts" FunctionName="citiAppDatabaseModel.Store.SelectProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectProducts_Result">
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectQueryByEmployer" FunctionName="citiAppDatabaseModel.Store.SelectQueryByEmployer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectQueryByEmployer_Result">
+                <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectQueryLedgerReportByAccount" FunctionName="citiAppDatabaseModel.Store.SelectQueryLedgerReportByAccount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectQueryLedgerReportByAccount_Result">
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UDI" ColumnName="UDI" />
+                <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+                <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+                <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="transDate" ColumnName="transDate" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="orNo" ColumnName="orNo" />
+                <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+                <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+                <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SelectQueryLedgerReportsAccountNo" FunctionName="citiAppDatabaseModel.Store.SelectQueryLedgerReportsAccountNo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.SelectQueryLedgerReportsAccountNo_Result">
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="co_Maker" ColumnName="co_Maker" />
+                <ScalarProperty Name="co_MakerAddress" ColumnName="co_MakerAddress" />
+                <ScalarProperty Name="Total_LCP" ColumnName="Total_LCP" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="UDI" ColumnName="UDI" />
+                <ScalarProperty Name="Total_Rebate" ColumnName="Total_Rebate" />
+                <ScalarProperty Name="PN" ColumnName="PN" />
+                <ScalarProperty Name="terms" ColumnName="terms" />
+                <ScalarProperty Name="GRS_Monthly" ColumnName="GRS_Monthly" />
+                <ScalarProperty Name="Net_monthly" ColumnName="Net_monthly" />
+                <ScalarProperty Name="Transaction_Date" ColumnName="Transaction_Date" />
+                <ScalarProperty Name="SI_DR_no" ColumnName="SI_DR_no" />
+                <ScalarProperty Name="Salesman" ColumnName="Salesman" />
+                <ScalarProperty Name="CI_By" ColumnName="CI_By" />
+                <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+                <ScalarProperty Name="down_payment" ColumnName="down_payment" />
+                <ScalarProperty Name="transDate" ColumnName="transDate" />
+                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="orNo" ColumnName="orNo" />
+                <ScalarProperty Name="PRIN_Amount" ColumnName="PRIN_Amount" />
+                <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+                <ScalarProperty Name="Penalty" ColumnName="Penalty" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Acct_Balance" ColumnName="Acct_Balance" />
+                <ScalarProperty Name="expected_date" ColumnName="expected_date" />
+                <ScalarProperty Name="expected_balance" ColumnName="expected_balance" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectQueryReceiptByOR" FunctionName="citiAppDatabaseModel.Store.selectQueryReceiptByOR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="citiAppDatabaseModel.selectQueryReceiptByOR_Result">
+                <ScalarProperty Name="last_Name" ColumnName="last_Name" />
+                <ScalarProperty Name="mid_Name" ColumnName="mid_Name" />
+                <ScalarProperty Name="f_Name" ColumnName="f_Name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+                <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serialNo" ColumnName="serialNo" />
+                <ScalarProperty Name="stockNo" ColumnName="stockNo" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="qnty" ColumnName="qnty" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="LCP" ColumnName="LCP" />
+                <ScalarProperty Name="or_number" ColumnName="or_number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateDescriptionByStockNo" FunctionName="citiAppDatabaseModel.Store.UpdateDescriptionByStockNo" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
