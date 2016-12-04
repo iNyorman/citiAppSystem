@@ -30,16 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgridProductDetails = new System.Windows.Forms.DataGridView();
-            this.dgridCollectionDetails = new System.Windows.Forms.DataGridView();
-            this.dRdetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ornumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orAmtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.collectiondetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgridCollectionDetails = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tBoxAccountNo = new System.Windows.Forms.TextBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oRNumberDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pRINAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,14 +46,18 @@
             this.nODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expecteddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expectedbalanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tBoxAccountNo = new System.Windows.Forms.TextBox();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.collectiondetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ornumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orAmtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dRdetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgridProductDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgridCollectionDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dRdetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collectiondetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dRdetailsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgridProductDetails
@@ -80,8 +79,15 @@
             this.dgridProductDetails.Location = new System.Drawing.Point(12, 67);
             this.dgridProductDetails.Name = "dgridProductDetails";
             this.dgridProductDetails.ReadOnly = true;
-            this.dgridProductDetails.Size = new System.Drawing.Size(843, 144);
+            this.dgridProductDetails.Size = new System.Drawing.Size(1033, 144);
             this.dgridProductDetails.TabIndex = 0;
+            // 
+            // stockNo
+            // 
+            this.stockNo.DataPropertyName = "stockNo";
+            this.stockNo.HeaderText = "stockNo";
+            this.stockNo.Name = "stockNo";
+            this.stockNo.ReadOnly = true;
             // 
             // dgridCollectionDetails
             // 
@@ -105,65 +111,37 @@
             this.dgridCollectionDetails.Location = new System.Drawing.Point(12, 217);
             this.dgridCollectionDetails.Name = "dgridCollectionDetails";
             this.dgridCollectionDetails.ReadOnly = true;
-            this.dgridCollectionDetails.Size = new System.Drawing.Size(843, 417);
+            this.dgridCollectionDetails.Size = new System.Drawing.Size(1033, 417);
             this.dgridCollectionDetails.TabIndex = 1;
             // 
-            // dRdetailsBindingSource
+            // label1
             // 
-            this.dRdetailsBindingSource.DataSource = typeof(citiAppSystem.Modules.Models.EF.DR_details);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "ACOUNT NO:";
             // 
-            // stockNo
+            // tBoxAccountNo
             // 
-            this.stockNo.DataPropertyName = "stockNo";
-            this.stockNo.HeaderText = "stockNo";
-            this.stockNo.Name = "stockNo";
-            this.stockNo.ReadOnly = true;
+            this.tBoxAccountNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tBoxAccountNo.Location = new System.Drawing.Point(129, 29);
+            this.tBoxAccountNo.Name = "tBoxAccountNo";
+            this.tBoxAccountNo.ReadOnly = true;
+            this.tBoxAccountNo.Size = new System.Drawing.Size(242, 24);
+            this.tBoxAccountNo.TabIndex = 3;
             // 
-            // brandDataGridViewTextBoxColumn
+            // btnPrint
             // 
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "brand";
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // serialNoDataGridViewTextBoxColumn
-            // 
-            this.serialNoDataGridViewTextBoxColumn.DataPropertyName = "serialNo";
-            this.serialNoDataGridViewTextBoxColumn.HeaderText = "serialNo";
-            this.serialNoDataGridViewTextBoxColumn.Name = "serialNoDataGridViewTextBoxColumn";
-            this.serialNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ornumberDataGridViewTextBoxColumn
-            // 
-            this.ornumberDataGridViewTextBoxColumn.DataPropertyName = "or_number";
-            this.ornumberDataGridViewTextBoxColumn.HeaderText = "or_number";
-            this.ornumberDataGridViewTextBoxColumn.Name = "ornumberDataGridViewTextBoxColumn";
-            this.ornumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // orAmtDataGridViewTextBoxColumn
-            // 
-            this.orAmtDataGridViewTextBoxColumn.DataPropertyName = "orAmt";
-            this.orAmtDataGridViewTextBoxColumn.HeaderText = "orAmt";
-            this.orAmtDataGridViewTextBoxColumn.Name = "orAmtDataGridViewTextBoxColumn";
-            this.orAmtDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // paymentTypeDataGridViewTextBoxColumn
-            // 
-            this.paymentTypeDataGridViewTextBoxColumn.DataPropertyName = "paymentType";
-            this.paymentTypeDataGridViewTextBoxColumn.HeaderText = "paymentType";
-            this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
-            this.paymentTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // collectiondetailsBindingSource
-            // 
-            this.collectiondetailsBindingSource.DataSource = typeof(citiAppSystem.Modules.Models.EF.collection_details);
+            this.btnPrint.Location = new System.Drawing.Point(867, 12);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(176, 34);
+            this.btnPrint.TabIndex = 4;
+            this.btnPrint.Text = "Print Ledger";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // dateDataGridViewTextBoxColumn
             // 
@@ -242,50 +220,61 @@
             this.expectedbalanceDataGridViewTextBoxColumn.Name = "expectedbalanceDataGridViewTextBoxColumn";
             this.expectedbalanceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label1
+            // collectiondetailsBindingSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "ACOUNT NO:";
+            this.collectiondetailsBindingSource.DataSource = typeof(citiAppSystem.Modules.Models.EF.collection_details);
             // 
-            // tBoxAccountNo
+            // brandDataGridViewTextBoxColumn
             // 
-            this.tBoxAccountNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxAccountNo.Location = new System.Drawing.Point(129, 29);
-            this.tBoxAccountNo.Name = "tBoxAccountNo";
-            this.tBoxAccountNo.ReadOnly = true;
-            this.tBoxAccountNo.Size = new System.Drawing.Size(242, 24);
-            this.tBoxAccountNo.TabIndex = 3;
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "brand";
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // btnPrint
+            // modelDataGridViewTextBoxColumn
             // 
-            this.btnPrint.Location = new System.Drawing.Point(692, 4);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(163, 34);
-            this.btnPrint.TabIndex = 4;
-            this.btnPrint.Text = "Print Ledger";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // checkBox1
+            // serialNoDataGridViewTextBoxColumn
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(692, 44);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Without Data";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.serialNoDataGridViewTextBoxColumn.DataPropertyName = "serialNo";
+            this.serialNoDataGridViewTextBoxColumn.HeaderText = "serialNo";
+            this.serialNoDataGridViewTextBoxColumn.Name = "serialNoDataGridViewTextBoxColumn";
+            this.serialNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ornumberDataGridViewTextBoxColumn
+            // 
+            this.ornumberDataGridViewTextBoxColumn.DataPropertyName = "or_number";
+            this.ornumberDataGridViewTextBoxColumn.HeaderText = "or_number";
+            this.ornumberDataGridViewTextBoxColumn.Name = "ornumberDataGridViewTextBoxColumn";
+            this.ornumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orAmtDataGridViewTextBoxColumn
+            // 
+            this.orAmtDataGridViewTextBoxColumn.DataPropertyName = "orAmt";
+            this.orAmtDataGridViewTextBoxColumn.HeaderText = "orAmt";
+            this.orAmtDataGridViewTextBoxColumn.Name = "orAmtDataGridViewTextBoxColumn";
+            this.orAmtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // paymentTypeDataGridViewTextBoxColumn
+            // 
+            this.paymentTypeDataGridViewTextBoxColumn.DataPropertyName = "paymentType";
+            this.paymentTypeDataGridViewTextBoxColumn.HeaderText = "paymentType";
+            this.paymentTypeDataGridViewTextBoxColumn.Name = "paymentTypeDataGridViewTextBoxColumn";
+            this.paymentTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dRdetailsBindingSource
+            // 
+            this.dRdetailsBindingSource.DataSource = typeof(citiAppSystem.Modules.Models.EF.DR_details);
             // 
             // frmAccountLedgerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 646);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(1057, 646);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.tBoxAccountNo);
             this.Controls.Add(this.label1);
@@ -298,11 +287,10 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account Preview";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dgridProductDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgridCollectionDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dRdetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.collectiondetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dRdetailsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,6 +323,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tBoxAccountNo;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

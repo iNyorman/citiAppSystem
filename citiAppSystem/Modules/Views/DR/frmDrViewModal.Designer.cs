@@ -312,10 +312,10 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(974, 15);
+            this.btnRemove.Location = new System.Drawing.Point(960, 15);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(77, 24);
+            this.btnRemove.Size = new System.Drawing.Size(91, 24);
             this.btnRemove.TabIndex = 8;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;

@@ -1,4 +1,5 @@
 ﻿using citiAppSystem.Modules.Views;
+using citiAppSystem.Modules.Views.Cashiers;
 using citiAppSystem.Modules.Views.DelAccView;
 using citiAppSystem.Modules.Views.Management.Account;
 using citiAppSystem.Modules.Views.Management.Logs;
@@ -206,8 +207,8 @@ namespace citiAppSystem
 
         private void customerCenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomerCenter cc = new CustomerCenter();
-            cc.ShowDialog();
+            frmAccountsList list = new frmAccountsList();
+            list.ShowDialog();
         }
 
         private void dailySalesReportsToolStripMenuItem_Click(object sender, EventArgs e)

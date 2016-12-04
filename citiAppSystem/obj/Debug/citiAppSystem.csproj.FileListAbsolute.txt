@@ -1073,8 +1073,6 @@ C:\Users\Intel\Desktop\citiAppSystem\citiAppSystem\bin\Debug\EntityFramework.xml
 C:\Users\Intel\Desktop\citiAppSystem\citiAppSystem\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Administrator\Desktop\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.csprojResolveAssemblyReference.cache
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\citiAppSystem.exe.config
-C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.exe
-C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.pdb
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\citiAppSystem.exe.manifest
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\citiAppSystem.application
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\citiAppSystem.exe
@@ -1091,7 +1089,6 @@ C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\Microsoft.
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\Dapper.xml
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\EntityFramework.xml
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.csprojResolveAssemblyReference.cache
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.add_branch.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.add_purchaseOrder.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.CustomerForms.add_updateCustomer.resources
@@ -1128,7 +1125,9 @@ C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSys
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Modals.ModalAmount.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Modals.ModalPice.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Reports.DailySales.resources
+C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Reports.frmLedgerReportView.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Reports.Ledger.resources
+C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Views.Cashiers.frmAccountLedgerView.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Views.Cashiers.frmAccountsList.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Views.Cashiers.frmCashierView.resources
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Views.DelAccView.frmDelAccView.resources
@@ -1164,4 +1163,5 @@ C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\RdlCompile
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\RdlCompile.compiled
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.exe.manifest
 C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.application
-C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.Modules.Views.Cashiers.frmAccountLedgerView.resources
+C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.exe
+C:\Users\Intel\Documents\GitHub\citiAppSystem\citiAppSystem\obj\Debug\citiAppSystem.pdb

@@ -82,10 +82,13 @@ namespace citiAppSystem.Modules.Views.Cashiers
             var accountRow = dGridAccountList.CurrentRow.DataBoundItem as DeliveryReceipt;
             if(accountRow.DRtype.Equals("DR"))
             {
-                LedgerFormFull lf = new LedgerFormFull();
-                lf.AccountNo = accountRow.AccountNo;
-                lf.TopMost = true;
-                lf.ShowDialog();
+                //LedgerFormFull lf = new LedgerFormFull();
+                //lf.AccountNo = accountRow.AccountNo;
+                //lf.TopMost = true;
+                //lf.ShowDialog();
+                frmAccountLedgerView ledgerView = new frmAccountLedgerView(accountRow.AccountNo);
+                ledgerView.TopMost = true;
+                ledgerView.ShowDialog();
             }
         }
 

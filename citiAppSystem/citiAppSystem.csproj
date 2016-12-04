@@ -563,6 +563,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>citiAppDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Models\EF\Classes\LedgerHeaderModel.cs" />
     <Compile Include="Modules\Models\EF\collection.cs">
       <DependentUpon>citiAppDb.tt</DependentUpon>
     </Compile>
@@ -652,6 +653,7 @@
     </Compile>
     <Compile Include="Modules\Models\EF\Services\CitiAppDbServices.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\CollectionDetailsTableRepo.cs" />
+    <Compile Include="Modules\Models\EF\Services\Repository\CollectionRepo.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\CTransactionTableRepo.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\CustomerTableRepo.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\DrDetailsRepo.cs" />
@@ -681,6 +683,12 @@
     </Compile>
     <Compile Include="Modules\Reports\DailySales.Designer.cs">
       <DependentUpon>DailySales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Reports\frmLedgerReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Reports\frmLedgerReportView.Designer.cs">
+      <DependentUpon>frmLedgerReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Reports\Ledger.cs">
       <SubType>Form</SubType>
@@ -1097,6 +1105,9 @@
     <EmbeddedResource Include="Modules\Reports\DailySales.resx">
       <DependentUpon>DailySales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Reports\frmLedgerReportView.resx">
+      <DependentUpon>frmLedgerReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Reports\Ledger.resx">
       <DependentUpon>Ledger.cs</DependentUpon>
     </EmbeddedResource>
@@ -1370,6 +1381,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\citiAppSystem.Modules.Models.DeliveryReceipt.datasource" />
+    <None Include="Properties\DataSources\citiAppSystem.Modules.Models.EF.Classes.LedgerHeaderModel.datasource" />
     <None Include="Properties\DataSources\citiAppSystem.Modules.Models.EF.collection_details.datasource" />
     <None Include="Properties\DataSources\citiAppSystem.Modules.Models.EF.DR_details.datasource" />
     <None Include="Properties\Settings.settings">

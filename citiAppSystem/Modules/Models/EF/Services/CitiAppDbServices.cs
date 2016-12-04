@@ -13,11 +13,13 @@ namespace citiAppSystem.Modules.Models.EF.Services
         {
 
         }
-        public CitiAppDbServices Services()
+        public static CitiAppDbServices Services()
         {
             var ret = new CitiAppDbServices();
             return ret;
         }
+
+        
         public CTransactionTableRepo CashierTransactions()
         {
             return new CTransactionTableRepo();
@@ -38,6 +40,10 @@ namespace citiAppSystem.Modules.Models.EF.Services
             return new CustomerTableRepo();
         }
 
+        public CollectionRepo Collection()
+        {
+            return new CollectionRepo();
+        }
         public  CollectionDetailsTableRepo collectionDetails()
         {
             return new CollectionDetailsTableRepo();

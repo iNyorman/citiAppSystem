@@ -720,7 +720,7 @@ namespace citiAppSystem.Modules.Views.DR
             double expectedBalance = (double)numPN.Value;
             DateTime? expectedDate = null;
             int monthsToAdd = 0;
-            for (int x = 0; x < numTerm.Value + 2; x++)
+            for (int x = 0; x <= numTerm.Value; x++)
             {
                 a.Collection_Details_ID = cDetailsId.ToString("000000") + "-" + currentBranch;
                 a.NO = no;

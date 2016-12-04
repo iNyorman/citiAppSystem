@@ -114,7 +114,7 @@ namespace citiAppSystem
                     {
                         //citiAppDatabaseDataSet.deliveryReceiptDataTable drAcctNoDT = drAdapter.GetDataByAccountNo(tboxAcctNo.Text);
                         //var dr = ServiceLocator.Instance().DRServices().DrByAccountNo(tboxAcctNo.Text);
-                        var dr = CitiAppDbServices.deliveryReceipt().DrByAcount(tboxAcctNo.Text);
+                        var dr = CitiAppDbServices.Services().deliveryReceipt().DrByAcount(tboxAcctNo.Text);
                         if (dr != null)
                         {
                             collectionDetailsBranchNo = dr.branchNo;
@@ -122,7 +122,7 @@ namespace citiAppSystem
                             currentType = TransactionType.AccountNo;
                             //citiAppDatabaseDataSet.customerTableRow cusRow = (citiAppDatabaseDataSet.customerTableRow)cusAdapter.GetDataBySearchByID_Num(idnumber).Rows[0];
                             //var customer = ServiceLocator.Instance().CustomerServices().CustomerByID_Number(idnumber);
-                            customerDetails = CitiAppDbServices.customer().CustomerByIdNumber(custID);
+                            customerDetails = CitiAppDbServices.Services().customer().CustomerByIdNumber(custID);
                             tBoxCustomerName.Text = customerDetails.fullName;
                             installmentType = "old";
                             dateTimePicker1.Focus();
@@ -152,7 +152,7 @@ namespace citiAppSystem
         }
         private void RetrieveCustomerById(string idNumber)
         {
-            customerDetails = CitiAppDbServices.customer().CustomerByIdNumber(idNumber);
+            customerDetails = CitiAppDbServices.Services().customer().CustomerByIdNumber(idNumber);
             if (customerDetails != null)
             {
                 tBoxCustomerName.Text = customerDetails.fullName;
@@ -218,7 +218,7 @@ namespace citiAppSystem
                 fullname = tBoxCustomerName.Text;
             }
 
-            customerDetails = CitiAppDbServices.customer().CustomerByFullname(tBoxCustomerName.Text);
+            customerDetails = CitiAppDbServices.Services().customer().CustomerByFullname(tBoxCustomerName.Text);
             if(customerDetails == null)
             {
                 customerDetails = new customerTable();
@@ -256,11 +256,11 @@ namespace citiAppSystem
                 {
                     updateCollectionDetails();
 
-                        var ctransChecker = CitiAppDbServices.CashierTransactions().CTransByORNum(tboxOrNo.Text, cboxBranch.SelectedValue.ToString());
+                        var ctransChecker = CitiAppDbServices.Services().CashierTransactions().CTransByORNum(tboxOrNo.Text, cboxBranch.SelectedValue.ToString());
                         if (ctransChecker != null)
                         {
                             NewCTransaction("used", cash_amount, cheque_amount);
-                            CitiAppDbServices.CashierTransactions().Update(cTransTable);
+                            CitiAppDbServices.Services().CashierTransactions().Update(cTransTable);
                         }
                         else
                         {
@@ -286,8 +286,8 @@ namespace citiAppSystem
                     NewCTransaction("pending", cash_amount, cheque_amount);
                     if (tboxAcctNo.Text.Length <= 5)
                     {
-                       
-                        int drIndex = CitiAppDbServices.CashierTransactions().CTransList().LastOrDefault().trans_Id + 1;
+
+                        int drIndex = CitiAppDbServices.Services().CashierTransactions().CTransList().LastOrDefault().trans_Id + 1;
                         cTransTable.AccountNo = tboxAcctNo.Text + "-" + drIndex.ToString() + "-" + DateTime.Now.Date.Year;
                     }
                     else
@@ -359,7 +359,7 @@ namespace citiAppSystem
         private void ORTransaction(string firstname, string middlename, string lastname, string fullname)
         {
             PaymentTypeConfigure();
-            dr = CitiAppDbServices.deliveryReceipt().DrByAcount(tboxAcctNo.Text);
+            dr = CitiAppDbServices.Services().deliveryReceipt().DrByAcount(tboxAcctNo.Text);
             if (dr != null)
             {
                 if (cTransTable.cTransStatus != "used")
@@ -369,11 +369,11 @@ namespace citiAppSystem
             }
             if (customerDetails.ID_Number != null)
             {
-                CitiAppDbServices.customer().Update(customerDetails);
+                CitiAppDbServices.Services().customer().Update(customerDetails);
             }
             else
             {
-                CitiAppDbServices.customer().Add(customerDetails);
+                CitiAppDbServices.Services().customer().Add(customerDetails);
             }
             NewCTransaction("used", cash_amount, cheque_amount);
             updateCTransaction();
@@ -393,14 +393,14 @@ namespace citiAppSystem
         private void updateCollectionDetails()
         {
 
-            collectionDetailsList = CitiAppDbServices.collectionDetails().ListByAccountNo(tboxAcctNo.Text);
+            collectionDetailsList = CitiAppDbServices.Services().collectionDetails().ListByAccountNo(tboxAcctNo.Text);
             if (checkerAssignPayment.Checked == true && tBoxNoPayment.Visible == true)
             {
                 collectionDetails = collectionDetailsList.Where(x => x.NO.Equals(tBoxNoPayment.Text)).FirstOrDefault();
                 if (collectionDetails != null)
                 {
 
-                    CitiAppDbServices.collectionDetails().Update(collectionDetails);
+                    CitiAppDbServices.Services().collectionDetails().Update(collectionDetails);
                 }
             }
             else
@@ -418,20 +418,20 @@ namespace citiAppSystem
                         else
                         {
                             var lastPaymentCollectionDetails = ServiceLocator.Instance().CollectionServices().CollectionDetailstLastPaymentDetail(tboxAcctNo.Text);
-                            var lastRowPayment = CitiAppDbServices.collectionDetails().ListByAccountNo(tboxAcctNo.Text).Where(x => !string.IsNullOrEmpty(x.OR_Number)).LastOrDefault();
+                            var lastRowPayment = CitiAppDbServices.Services().collectionDetails().ListByAccountNo(tboxAcctNo.Text).Where(x => !string.IsNullOrEmpty(x.OR_Number)).LastOrDefault();
                             currentBalance = double.Parse(lastRowPayment.Acct_Balance);
                         }
                         balance = currentBalance - Double.Parse(tboxGRSAMT.Text);
                         updateCollectionDetails(balance);
-                        CitiAppDbServices.collectionDetails().Update(collectionDetails);
+                        CitiAppDbServices.Services().collectionDetails().Update(collectionDetails);
                     }
                 }
                 else
                 {
                     updateCollectionDetails(balance);
-                    collectionDetails.Collection_Details_ID = (CitiAppDbServices.collectionDetails().List().LastOrDefault().id + 1).ToString() + "-" + collectionDetailsBranchNo;
+                    collectionDetails.Collection_Details_ID = (CitiAppDbServices.Services().collectionDetails().List().LastOrDefault().id + 1).ToString() + "-" + collectionDetailsBranchNo;
                     collectionDetails.Collection_ID = tboxAcctNo.Text;
-                    CitiAppDbServices.collectionDetails().Add(collectionDetails);
+                    CitiAppDbServices.Services().collectionDetails().Add(collectionDetails);
                 }
             }
         }
@@ -468,12 +468,12 @@ namespace citiAppSystem
 
         private void InsertCTransaction()
         {
-            CitiAppDbServices.CashierTransactions().Add(cTransTable);
+            CitiAppDbServices.Services().CashierTransactions().Add(cTransTable);
         }
 
         private void updateCTransaction()
         {
-            CitiAppDbServices.CashierTransactions().Update(cTransTable);
+            CitiAppDbServices.Services().CashierTransactions().Update(cTransTable);
         }
 
         private void NewCTransaction(string CTransStatus,string cashAmt,string chequeAmt)
@@ -525,11 +525,24 @@ namespace citiAppSystem
         {
             try
             {
-                Global.process.role = "Accounting";
-                updateDeliveryCollections udc = new updateDeliveryCollections();
-                udc.acctNo = tboxAcctNo.Text;
-                udc.TopMost = true;
-                udc.Show();
+                //Global.process.role = "Accounting";
+                //updateDeliveryCollections udc = new updateDeliveryCollections();
+                //udc.acctNo = tboxAcctNo.Text;
+                //udc.TopMost = true;
+                //udc.Show();
+                var checker = CitiAppDbServices.Services().deliveryReceipt().DrByAcount(tboxAcctNo.Text);
+                if(checker != null)
+                {
+                    frmAccountLedgerView accountView = new frmAccountLedgerView(tboxAcctNo.Text);
+                    accountView.TopMost = true;
+                    accountView.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("No Details found.");
+                }
+                
+                
             }
             catch (Exception ex)
             {
@@ -752,7 +765,7 @@ namespace citiAppSystem
 
                     citiAppDatabaseDataSet.c_TransTableDataTable cTransDT = cTransAdapter.GetDataByOrBranchNo(tboxOrNo.Text, cboxBranch.SelectedValue.ToString());
                     //cTransTable = new c_TransTable();
-                    cTransTable = CitiAppDbServices.CashierTransactions().CTransByORNum(tboxOrNo.Text,cboxBranch.SelectedValue.ToString());
+                    cTransTable = CitiAppDbServices.Services().CashierTransactions().CTransByORNum(tboxOrNo.Text, cboxBranch.SelectedValue.ToString());
                     if (cTransTable != null)
                     {
                         //citiAppDatabaseDataSet.c_TransTableRow c_TransRow = (citiAppDatabaseDataSet.c_TransTableRow)cTransAdapter.GetDataByORnumber(tboxOrNo.Text).Rows[0];
@@ -817,7 +830,7 @@ namespace citiAppSystem
             accountNo = cTransTable.AccountNo.ToString();
             tboxAcctNo.Text = accountNo;
             RetrieveCustomerById(cTransTable.ID_Number);
-            dr = CitiAppDbServices.deliveryReceipt().DrByAcount(accountNo);
+            dr = CitiAppDbServices.Services().deliveryReceipt().DrByAcount(accountNo);
             if (dr != null)
             {
                 tboxAcctNo.Enabled = false;
@@ -977,7 +990,7 @@ namespace citiAppSystem
 
         private void customerExistenceChecker()
         {
-            var customer = CitiAppDbServices.customer().CustomerByFullname(tBoxCustomerName.Text);
+            var customer = CitiAppDbServices.Services().customer().CustomerByFullname(tBoxCustomerName.Text);
             if (customer != null)
             {
                 customerDetails = customer;
@@ -988,7 +1001,7 @@ namespace citiAppSystem
                 if (MessageBox.Show("No existing customer found,save new customer?","System",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     newCustomerAssembler();
-                    CitiAppDbServices.customer().Add(customerDetails);
+                    CitiAppDbServices.Services().customer().Add(customerDetails);
                     custID = customerDetails.ID_Number;
                     MessageBox.Show("Successfully added new customer");
                 }
@@ -1021,7 +1034,7 @@ namespace citiAppSystem
                 fullname = tBoxCustomerName.Text;
             }
             customerDetails = new customerTable();
-            var customerListCount = CitiAppDbServices.customer().CustomerList().Count + 1;
+            var customerListCount = CitiAppDbServices.Services().customer().CustomerList().Count + 1;
             customerDetails.ID_Number = "CUS-" + customerListCount.ToString() + "-" + cboxBranch.SelectedValue.ToString();
             customerDetails.f_Name = firstname;
             customerDetails.mid_Name = middlename;
