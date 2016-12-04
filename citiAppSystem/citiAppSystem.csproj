@@ -654,6 +654,7 @@
     <Compile Include="Modules\Models\EF\Services\Repository\CollectionDetailsTableRepo.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\CTransactionTableRepo.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\CustomerTableRepo.cs" />
+    <Compile Include="Modules\Models\EF\Services\Repository\DrDetailsRepo.cs" />
     <Compile Include="Modules\Models\EF\Services\Repository\DRTableRepo.cs" />
     <Compile Include="Modules\Models\EF\st_requisitionTable.cs">
       <DependentUpon>citiAppDb.tt</DependentUpon>
@@ -698,6 +699,12 @@
     <Compile Include="Modules\Repository\freeProductsRepository.cs" />
     <Compile Include="Modules\Repository\productRepository.cs" />
     <Compile Include="Modules\Repository\stockTransferRepository.cs" />
+    <Compile Include="Modules\Views\Cashiers\frmAccountLedgerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Views\Cashiers\frmAccountLedgerView.Designer.cs">
+      <DependentUpon>frmAccountLedgerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Views\Cashiers\frmAccountsList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1094,6 +1101,9 @@
       <DependentUpon>Ledger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Reports\LedgerReport.rdlc" />
+    <EmbeddedResource Include="Modules\Views\Cashiers\frmAccountLedgerView.resx">
+      <DependentUpon>frmAccountLedgerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Views\Cashiers\frmAccountsList.resx">
       <DependentUpon>frmAccountsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -1360,6 +1370,8 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\citiAppSystem.Modules.Models.DeliveryReceipt.datasource" />
+    <None Include="Properties\DataSources\citiAppSystem.Modules.Models.EF.collection_details.datasource" />
+    <None Include="Properties\DataSources\citiAppSystem.Modules.Models.EF.DR_details.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -9,22 +9,36 @@ namespace citiAppSystem.Modules.Models.EF.Services
 {
     public class CitiAppDbServices
     {
-        public static CTransactionTableRepo CashierTransactions()
+        public CitiAppDbServices()
+        {
+
+        }
+        public CitiAppDbServices Services()
+        {
+            var ret = new CitiAppDbServices();
+            return ret;
+        }
+        public CTransactionTableRepo CashierTransactions()
         {
             return new CTransactionTableRepo();
         }
 
-        public static DRTableRepo deliveryReceipt()
+        public  DRTableRepo deliveryReceipt()
         {
             return new DRTableRepo();
         }
 
-        public static CustomerTableRepo customer()
+        public DrDetailsRepo DR_Details()
+        {
+            return new DrDetailsRepo();
+        }
+
+        public  CustomerTableRepo customer()
         {
             return new CustomerTableRepo();
         }
 
-        public static CollectionDetailsTableRepo collectionDetails()
+        public  CollectionDetailsTableRepo collectionDetails()
         {
             return new CollectionDetailsTableRepo();
         }

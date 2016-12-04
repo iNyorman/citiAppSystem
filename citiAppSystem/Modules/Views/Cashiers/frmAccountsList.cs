@@ -53,8 +53,8 @@ namespace citiAppSystem.Modules.Views.Cashiers
             {
                 list = drList.Where(x => x.Delivery_Date.Equals(dtDeliveryDate.Value)).ToList();
             }
-          
-            deliveryReceiptBindingSource.DataSource = drList;
+
+            deliveryReceiptBindingSource.DataSource = list;
 
         }
         private void tBoxAccountNo_TextChanged(object sender, EventArgs e)

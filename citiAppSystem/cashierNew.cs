@@ -241,7 +241,8 @@ namespace citiAppSystem
             else
             {
                 newCustomerAssembler();
-                CitiAppDbServices.customer().Add(customerDetails);
+                
+                CitiAppDbServices.Services().customer().Add(customerDetails);
                
             }
             //validateIfSomething here
